@@ -1,0 +1,36 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://bstgamhxxy2n6"]
+
+[sub_resource type="Curve" id="Curve_ec1uf"]
+min_value = -500.0
+max_value = 500.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ko1ux"]
+curve = SubResource("Curve_ec1uf")
+
+[sub_resource type="Curve" id="Curve_yoyl1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.753488, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hphwl"]
+curve = SubResource("Curve_yoyl1")
+
+[resource]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 60.8
+gravity = Vector3(0, 10, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -37.57
+angular_velocity_max = 162.78
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = SubResource("CurveTexture_ko1ux")
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_hphwl")
+color = Color(0, 0.662745, 0.996078, 1)
+hue_variation_min = -0.18
+hue_variation_max = 0.8
+turbulence_noise_strength = 6.88

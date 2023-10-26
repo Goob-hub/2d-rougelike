@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://cto0qf6itgnui"]
+
+[ext_resource type="Texture2D" uid="uid://c1wiag2t41pt8" path="res://scenes/game_objects/wizard_enemy/WizardAttackNew.png" id="1_6b65b"]
+[ext_resource type="Script" path="res://scenes/game_objects/wizard_enemy/wizard_attack.gd" id="1_pndle"]
+[ext_resource type="Material" uid="uid://bstgamhxxy2n6" path="res://resources/particles/wizard_blood_particles.tres" id="2_oly7u"]
+
+[sub_resource type="Animation" id="Animation_i5s12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yq7xa"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_2piei"]
+resource_name = "explode"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jly6y"]
+_data = {
+"RESET": SubResource("Animation_i5s12"),
+"explode": SubResource("Animation_2piei"),
+"idle": SubResource("Animation_yq7xa")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1rn3"]
+size = Vector2(18, 18)
+
+[node name="WizardAttack" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 33
+script = ExtResource("1_pndle")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_6b65b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_jly6y")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+process_material = ExtResource("2_oly7u")
+fixed_fps = 0
+interpolate = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j1rn3")

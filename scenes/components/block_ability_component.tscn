@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://diy2gb421smtm"]
+
+[ext_resource type="Script" path="res://scenes/components/block_ability_component.gd" id="1_mo6gm"]
+
+[node name="BlockAbilityComponent" type="Node"]
+script = ExtResource("1_mo6gm")
