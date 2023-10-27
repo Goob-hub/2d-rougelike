@@ -4,6 +4,8 @@
 
 [node name="AbilityUpgradeCard" type="PanelContainer"]
 custom_minimum_size = Vector2(100, 120)
+offset_right = 100.0
+offset_bottom = 120.0
 mouse_filter = 1
 script = ExtResource("1_g6bop")
 

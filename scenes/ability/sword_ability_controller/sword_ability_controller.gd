@@ -2,30 +2,30 @@ extends Node2D
 
 @export var max_range: float = 150
 @export var sword_ability: PackedScene 
-@export var minimum_sword_rate: float = .5
-@export var damage = 5
+@export var damage: float = 5
+@export var damage_multiplier: float = 1
 
-var sword_rate
+var sword_rate = 1.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
-	sword_rate = $Timer.wait_time
+	$Timer.wait_time = sword_rate
 	$Timer.timeout.connect(on_timer_timeout)
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	if(upgrade.id != "sword_rate" or sword_rate == minimum_sword_rate):
-		return
+	if(upgrade.id == "sword_rate"):
+		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * .1
+		var new_sword_rate = sword_rate * (1 - percent_reduction)
+		print(new_sword_rate)
+		$Timer.wait_time = new_sword_rate
+		#Will restart timer and reset the wait time
+		$Timer.start()
+	elif(upgrade.id == "sword_damage"):
+		damage_multiplier += .15
 	
-	var upgrade_quantity = current_upgrades["sword_rate"]["quantity"]
-	var percent_reduction = (sword_rate * .1) * upgrade_quantity
-	var new_sword_rate = maxf(minimum_sword_rate, (sword_rate - percent_reduction))
 	
-	sword_rate = new_sword_rate
-	$Timer.wait_time = new_sword_rate
-	#Will restart timer and reset the wait time
-	$Timer.start()
 
 
 func on_timer_timeout():
@@ -68,7 +68,7 @@ func instantiate_sword_in_scene(closest_enemy: CharacterBody2D):
 	var sword_instance = sword_ability.instantiate() as SwordAbility
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	foreground_layer.add_child(sword_instance)
-	sword_instance.hitbox_component.damage = damage
+	sword_instance.hitbox_component.damage = damage * damage_multiplier
 	
 	set_sword_position(sword_instance, closest_enemy)
 

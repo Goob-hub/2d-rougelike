@@ -5,3 +5,15 @@ res://resources/particles/body_fling_particle.tres
 res://resources/shaders/hit_flash_component.gdshader
 res://resources/particles/wizard_blood_particles.tres
 res://resources/tileset.tres
+res://scenes/game_objects/player/player.tscn
+res://scenes/ability/sword_ability_controller/sword_ability_controller.gd
+res://scenes/ability/axe_ability_controller/axe_ability_controller.tscn
+res://scenes/ability/axe_ability_controller/axe_ability_controller.gd
+res://other_scripts/weighted_table.gd
+res://scenes/manager/upgrade_manager.gd
+res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn
+res://scenes/components/hurt_box_component.tscn
+res://scenes/components/hurt_box_component.gd
+res://scenes/components/health_component.tscn
+res://scenes/ui/ability_upgrade_card.tscn
+res://resources/theme/theme.tres

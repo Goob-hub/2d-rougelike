@@ -16,8 +16,8 @@ var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 
 func _ready():
 	upgrade_pool.add_item(upgrade_axe_damage.name, upgrade_axe_damage, 0)
-	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
 	upgrade_pool.add_item(upgrade_sword_rate.name, upgrade_sword_rate, 30)
+	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
 	upgrade_pool.add_item(upgrade_sword_damage.name, upgrade_sword_damage, 30)
 	
 	experience_manager.level_up.connect(on_level_up)

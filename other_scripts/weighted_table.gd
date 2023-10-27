@@ -30,7 +30,6 @@ func get_item_weight(name: String):
 	var chosen_weight = 1
 	
 	for item in items:
-		print(item.name, "||", name)
 		if(item.name == name):
 			chosen_weight = item.weight
 	
