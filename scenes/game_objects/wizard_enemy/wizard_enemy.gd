@@ -30,6 +30,8 @@ func _process(delta):
 		
 		if(attack_component.ready_to_attack):
 			reset_sprites()
+			$AttackWarningPlayer.play("before_attack")
+			await $AttackWarningPlayer.animation_finished
 			attack_component.use_attack()
 	else:
 		is_reset = false

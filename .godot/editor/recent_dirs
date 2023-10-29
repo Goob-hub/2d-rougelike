@@ -1,3 +1,4 @@
+res://resources/particles
 res://scenes/components
 res://resources
 res://resources/shaders
@@ -5,7 +6,6 @@ res://scenes/ui
 res://resources/theme
 res://scenes/game_objects
 res://scenes/test_scenes
-res://resources/particles
 res://scenes/game_objects/wizard_enemy
 res://resources/upgrades
 res://scenes/ability/axe_ability
