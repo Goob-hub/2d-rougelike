@@ -1,5 +1,6 @@
-res://scenes/components
+res://scenes/autoload
 res://scenes/ui
+res://scenes/components
 res://resources/upgrades
 res://resources/particles
 res://resources
@@ -11,7 +12,6 @@ res://scenes/game_objects/wizard_enemy
 res://scenes/ability/axe_ability
 res://scenes/ability/axe_ability_controller
 res://scenes/manager
-res://scenes/autoload
 res://scenes/game_objects/experience_vial
 res://scenes/ability/sword_ability_controller
 res://scenes/ability/sword_ability

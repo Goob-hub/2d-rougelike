@@ -107,5 +107,7 @@ fixed_fps = 0
 interpolate = false
 
 [node name="RandomHitSoundComponent" parent="." instance=ExtResource("3_vb0uy")]
-max_distance = 300.0
+max_distance = 600.0
 streams = Array[AudioStream]([ExtResource("4_a0cj1"), ExtResource("5_q2phw"), ExtResource("6_odf6m"), ExtResource("7_7lodb"), ExtResource("8_s5ki5")])
+min_pitch = 0.6
+max_pitch = 0.8
