@@ -6,5 +6,6 @@
 script = ExtResource("1_4voxg")
 id = "sword_damage"
 name = "Sword Damage"
+value_percent = 0.15
 max_quantity = 0
 description = "Increases axe ability damage by 15%"

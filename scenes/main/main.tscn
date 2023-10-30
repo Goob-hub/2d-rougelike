@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dde0m7jv3iuxn"]
+[gd_scene load_steps=15 format=3 uid="uid://dde0m7jv3iuxn"]
 
 [ext_resource type="PackedScene" uid="uid://s2rcbcy1p34f" path="res://scenes/ui/arena_time_ui.tscn" id="1_d30fg"]
 [ext_resource type="PackedScene" uid="uid://ceewxkeei5li1" path="res://scenes/manager/enemy_manager.tscn" id="1_dlo0r"]
@@ -13,10 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://csn2n5rnynbuo" path="res://scenes/ui/experience_bar.tscn" id="8_8e63i"]
 [ext_resource type="PackedScene" uid="uid://bi8fomspbikyg" path="res://scenes/game_objects/experience_vial/experience_vial.tscn" id="13_dh1i0"]
 [ext_resource type="PackedScene" uid="uid://bfjyfkyftbffj" path="res://scenes/game_objects/wizard_enemy/wizard_enemy.tscn" id="13_pg15u"]
+[ext_resource type="PackedScene" uid="uid://cjaq5q4j8umw1" path="res://scenes/ui/vignette.tscn" id="14_ovfd4"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_euak7")
 end_screen_scene = ExtResource("2_mi7c5")
+
+[node name="Vignette" parent="." instance=ExtResource("14_ovfd4")]
 
 [node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("8_8e63i")]
 experience_manager = NodePath("../ExperienceManager")
@@ -52,7 +55,6 @@ position = Vector2(-48, 187)
 [node name="Player" parent="Entities" instance=ExtResource("1_ome2u")]
 unique_name_in_owner = true
 position = Vector2(512, 284)
-mov_speed = 200.0
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 

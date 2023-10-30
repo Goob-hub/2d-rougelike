@@ -1,6 +1,8 @@
 extends Area2D
 class_name HurtBoxComponent
 
+signal hit
+
 @export var health_component: HealthComponent
 @export var floating_text: PackedScene
 
@@ -29,4 +31,5 @@ func on_area_entered(other_area: Area2D):
 	
 	owner.get_tree().get_first_node_in_group("foreground_layer").add_child(dmg_txt)
 	
+	hit.emit()
 	health_component.damage(hitbox_component.damage)

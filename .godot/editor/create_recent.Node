@@ -1,6 +1,10 @@
-GPUParticles2D
+AudioStreamPlayer2D
+AudioStreamPlayer
 AnimationPlayer
 ColorRect
+CanvasLayer
+VBoxContainer
+GPUParticles2D
 AnimationTree
 PanelContainer
 MarginContainer
@@ -16,9 +20,7 @@ CharacterBody2D
 Timer
 ShapeCast2D
 Button
-VBoxContainer
 Panel
-CanvasLayer
 ProgressBar
 HBoxContainer
 Node3D

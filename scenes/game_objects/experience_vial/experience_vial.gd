@@ -25,6 +25,8 @@ func on_area_entered(other_area: Area2D):
 	tween.parallel().tween_property(sprite, "scale", Vector2(1.2, 1.2), .75)
 	
 	tween.tween_callback(collect_vial)
+	
+	$RandomExpSound.play_random_sound()
 
 
 func tween_collect(percent: float, start_pos: Vector2):

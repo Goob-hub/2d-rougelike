@@ -16,14 +16,13 @@ func _ready():
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if(upgrade.id == "sword_rate"):
-		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * .1
+		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * upgrade.value_percent
 		var new_sword_rate = sword_rate * (1 - percent_reduction)
-		print(new_sword_rate)
 		$Timer.wait_time = new_sword_rate
 		#Will restart timer and reset the wait time
 		$Timer.start()
 	elif(upgrade.id == "sword_damage"):
-		damage_multiplier += .15
+		damage_multiplier += upgrade.value_percent
 	
 	
 

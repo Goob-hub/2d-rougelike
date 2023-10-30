@@ -15,6 +15,7 @@ var is_reset = true
 
 func _ready():
 	attack_component.is_attacking.connect(on_attack)
+	$HurtBoxComponent.hit.connect(on_hit)
 
 
 func _process(delta):
@@ -47,6 +48,10 @@ func reset_sprites():
 	staff_sprite.position.y = -6
 	is_reset = true
 
+
 func on_attack():
 	animation_player.play("attack")
 
+
+func on_hit():
+	$RandomHitSoundComponent.play_random_sound()

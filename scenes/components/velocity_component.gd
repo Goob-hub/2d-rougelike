@@ -22,6 +22,12 @@ func accelerate_to_player():
 	velocity = velocity.lerp(target_velocity, 1 - exp(-get_process_delta_time() * acceleration))
 
 
+func accelerate_in_direction(dir):
+	var target_velocity = dir * mov_speed
+	#Gradually gets to target velocity based on the percent provided
+	velocity = velocity.lerp(target_velocity, 1 - exp(-get_process_delta_time() * acceleration))
+
+
 func face_towards_player():
 	if(direction.x < 0):
 		return Vector2(-1, 1)

@@ -1,13 +1,13 @@
-res://resources/particles
 res://scenes/components
+res://scenes/ui
+res://resources/upgrades
+res://resources/particles
 res://resources
 res://resources/shaders
-res://scenes/ui
 res://resources/theme
 res://scenes/game_objects
 res://scenes/test_scenes
 res://scenes/game_objects/wizard_enemy
-res://resources/upgrades
 res://scenes/ability/axe_ability
 res://scenes/ability/axe_ability_controller
 res://scenes/manager

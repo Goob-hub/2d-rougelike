@@ -1,10 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://bt7buwa8p7nsg"]
+[gd_scene load_steps=21 format=3 uid="uid://bt7buwa8p7nsg"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_hasnl"]
 [ext_resource type="Texture2D" uid="uid://cia2v0rngro2x" path="res://scenes/game_objects/player/player.png" id="1_o0ylg"]
 [ext_resource type="PackedScene" uid="uid://c448lqc31as10" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_4u0dx"]
 [ext_resource type="PackedScene" uid="uid://2i160vn64cvs" path="res://scenes/components/health_component.tscn" id="2_jxuib"]
+[ext_resource type="PackedScene" uid="uid://de0yvh8123itg" path="res://scenes/components/velocity_component.tscn" id="2_w04cn"]
 [ext_resource type="PackedScene" uid="uid://dp5a6dhmv8bkn" path="res://scenes/components/health_bar_component.tscn" id="4_n41ar"]
+[ext_resource type="PackedScene" uid="uid://xewnqnrkwdl4" path="res://scenes/components/RandomHitSoundComponent.tscn" id="7_4wm0e"]
+[ext_resource type="AudioStream" uid="uid://c5ti856evlraf" path="res://assets/audio/impactMining_000.ogg" id="8_foqqs"]
+[ext_resource type="AudioStream" uid="uid://dly7v7vc6y84s" path="res://assets/audio/impactMining_001.ogg" id="9_p1egj"]
+[ext_resource type="AudioStream" uid="uid://feuiurweq7rw" path="res://assets/audio/impactMining_002.ogg" id="10_eb27y"]
+[ext_resource type="AudioStream" uid="uid://dkdqjwwf1mrfr" path="res://assets/audio/impactMining_003.ogg" id="11_033p4"]
+[ext_resource type="AudioStream" uid="uid://d1rv0mdd86xa" path="res://assets/audio/impactMining_004.ogg" id="12_p5vla"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jto33"]
 bg_color = Color(0.313726, 0.698039, 0.364706, 1)
@@ -160,7 +167,10 @@ player_health_component = NodePath("HealthComponent")
 hurt_delay_timer = NodePath("HurtDelayTimer")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_jxuib")]
-max_health = 1.0
+max_health = 15.0
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_w04cn")]
+mov_speed = 100
 
 [node name="Abilities" type="Node" parent="."]
 
@@ -207,3 +217,6 @@ shape = SubResource("CircleShape2D_eerni")
 libraries = {
 "": SubResource("AnimationLibrary_wqnfu")
 }
+
+[node name="RandomHitSoundComponent" parent="." instance=ExtResource("7_4wm0e")]
+streams = Array[AudioStream]([ExtResource("8_foqqs"), ExtResource("9_p1egj"), ExtResource("10_eb27y"), ExtResource("11_033p4"), ExtResource("12_p5vla")])

@@ -6,5 +6,6 @@
 script = ExtResource("1_lfwlt")
 id = "sword_rate"
 name = "Sword Rate"
+value_percent = 0.15
 max_quantity = 5
 description = "Increases sword attack rate 10%"

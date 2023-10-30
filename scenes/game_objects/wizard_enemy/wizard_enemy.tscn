@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bfjyfkyftbffj"]
+[gd_scene load_steps=34 format=3 uid="uid://bfjyfkyftbffj"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/wizard_enemy/wizard_enemy.gd" id="1_3a0as"]
 [ext_resource type="PackedScene" uid="uid://2i160vn64cvs" path="res://scenes/components/health_component.tscn" id="1_ldxb4"]
@@ -16,6 +16,51 @@
 [ext_resource type="PackedScene" uid="uid://dreiv4cjow7kd" path="res://scenes/components/attack_component.tscn" id="9_isgxr"]
 [ext_resource type="PackedScene" uid="uid://cto0qf6itgnui" path="res://scenes/game_objects/wizard_enemy/wizard_attack.tscn" id="10_7jc1j"]
 [ext_resource type="Texture2D" uid="uid://dwg3uv8ah12ld" path="res://scenes/game_objects/wizard_enemy/enemy_staff.png" id="11_bedos"]
+[ext_resource type="PackedScene" uid="uid://xewnqnrkwdl4" path="res://scenes/components/RandomHitSoundComponent.tscn" id="17_elv7i"]
+[ext_resource type="AudioStream" uid="uid://5ikrlh238ew1" path="res://assets/audio/footstep_carpet_000.ogg" id="18_aka5m"]
+[ext_resource type="AudioStream" uid="uid://d31auqajaed06" path="res://assets/audio/footstep_carpet_001.ogg" id="19_rcn77"]
+[ext_resource type="AudioStream" uid="uid://d2e0bck4gsuw0" path="res://assets/audio/footstep_carpet_002.ogg" id="20_pop81"]
+[ext_resource type="AudioStream" uid="uid://35c4vq8rm0gp" path="res://assets/audio/footstep_carpet_003.ogg" id="21_vfd04"]
+[ext_resource type="AudioStream" uid="uid://c882tr80tldu8" path="res://assets/audio/footstep_carpet_004.ogg" id="22_yniye"]
+
+[sub_resource type="Animation" id="Animation_2q6h1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_c0mh1"]
 resource_name = "before_attack"
@@ -52,45 +97,6 @@ tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_2q6h1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
@@ -355,7 +361,7 @@ _data = {
 "walking": SubResource("Animation_tg25f")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3cou"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2dqu"]
 resource_local_to_scene = true
 shader = ExtResource("7_kt7pe")
 shader_parameter/lerp_percent = 0.0
@@ -391,7 +397,7 @@ body_animation = ExtResource("5_fab14")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_tg178")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_x3cou")
+hit_flash_material = SubResource("ShaderMaterial_x2dqu")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_e18xp")]
 mov_speed = 35
@@ -407,6 +413,7 @@ health_component = NodePath("../HealthComponent")
 attack = ExtResource("10_7jc1j")
 
 [node name="HealthBarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_bm08u")]
+modulate = Color(1, 1, 1, 0)
 offset_top = -23.0
 offset_bottom = -19.0
 theme_override_styles/fill = ExtResource("5_5vp3e")
@@ -435,3 +442,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HurtBoxShape" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_duv6t")
+
+[node name="RandomHitSoundComponent" parent="." instance=ExtResource("17_elv7i")]
+max_distance = 300.0
+streams = Array[AudioStream]([ExtResource("18_aka5m"), ExtResource("19_rcn77"), ExtResource("20_pop81"), ExtResource("21_vfd04"), ExtResource("22_yniye")])

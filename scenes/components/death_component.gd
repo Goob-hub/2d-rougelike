@@ -29,3 +29,4 @@ func on_dead():
 	entity_layer.add_child(self)
 	self.global_position = enemy_position
 	animation_player.play("default")
+	$RandomHitSoundComponent.play_random_sound()
