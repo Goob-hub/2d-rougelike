@@ -81,4 +81,4 @@ libraries = {
 
 [node name="RandomExpSound" parent="." instance=ExtResource("4_dl0sc")]
 max_distance = 300.0
-streams = Array[AudioStream]([ExtResource("5_bvgwj"), ExtResource("6_ubxaj"), ExtResource("7_406xj"), ExtResource("8_p68d6")])
+audio_streams = Array[AudioStream]([ExtResource("5_bvgwj"), ExtResource("6_ubxaj"), ExtResource("7_406xj"), ExtResource("8_p68d6")])

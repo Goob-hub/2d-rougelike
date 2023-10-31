@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1698700175
+::res://::1698775355
 default_bus_layout.tres::AudioBusLayout::4731766048728939055::1698675271::0::1::::<><>::
 icon.svg::CompressedTexture2D::8086233886400238607::1697062349::1697062362::1::::<><>::
 ::res://assets/::1698672915
@@ -54,8 +54,8 @@ confetti_cannon.tres::ParticleProcessMaterial::1506084000482121215::1698700352::
 experience_vial.tres::ParticleProcessMaterial::2307780396786858294::1698698281::0::1::::<><>::
 fire_particles.tres::ParticleProcessMaterial::4052997388874606466::1698535629::0::1::::<><>::
 wizard_blood_particles.tres::ParticleProcessMaterial::3689407990631976597::1698698281::0::1::::<><>::
-::res://resources/shaders/::1698700653
-hit_flash_component.gdshader::Shader::-1::1698700653::0::1::::<><>::
+::res://resources/shaders/::1698703401
+hit_flash_component.gdshader::Shader::-1::1698703401::0::1::::<><>::
 ::res://resources/theme/::1698698671
 Rockboxcond12.ttf::FontFile::4049253117522929828::1698182237::1698182306::1::::<><>::
 theme.tres::Theme::6666534505845608503::1698698671::0::1::::<><>::uid://bxxquv8b1g3s7::::res://resources/theme/Rockboxcond12.ttf<>uid://bkhh4a3f3i4p6::::res://assets/ui/ui.png
@@ -83,9 +83,11 @@ sword_ability.tscn::PackedScene::4550951280022182399::1697760429::0::1::::<><>::
 ::res://scenes/ability/sword_ability_controller/::1698618410
 sword_ability_controller.gd::GDScript::-1::1698614788::0::1::::<>Node2D<>::
 sword_ability_controller.tscn::PackedScene::6870208937021291381::1698618410::0::1::::<><>::res://scenes/ability/sword_ability_controller/sword_ability_controller.gd<>uid://b53rrddk6t2tf
-::res://scenes/autoload/::1698672547
+::res://scenes/autoload/::1698703346
 game_events.gd::GDScript::-1::1698672041::0::1::::<>Node<>::
 game_events.tscn::PackedScene::8142577126465418209::1698672547::0::1::::<><>::res://scenes/autoload/game_events.gd
+music_stream_player.gd::GDScript::-1::1698703152::0::1::::<>AudioStreamPlayer<>::
+music_stream_player.tscn::PackedScene::6037370767145819837::1698703346::0::1::::<><>::uid://to7i8i61x64a::::res://assets/audio/Hear+What+They+Say.mp3<>res://scenes/autoload/music_stream_player.gd
 ::res://scenes/components/::1698700627
 attack_component.gd::GDScript::-1::1698101028::0::1::::<>Node<>::
 attack_component.tscn::PackedScene::8361254668251519879::1698108809::0::1::::<><>::res://scenes/components/attack_component.gd
@@ -125,10 +127,10 @@ basic_enemy_rat_gray.png::CompressedTexture2D::2978222891565100380::1698173647::
 experience_vial.gd::GDScript::-1::1698677752::0::1::::<>Node2D<>::
 experience_vial.png::CompressedTexture2D::8241323138461127878::1697321164::1697321359::1::::<><>::
 experience_vial.tscn::PackedScene::3016385143529709326::1698678457::0::1::::<><>::res://scenes/game_objects/experience_vial/experience_vial.gd<>uid://dpofngswr1f5w
-::res://scenes/game_objects/player/::1698700627
+::res://scenes/game_objects/player/::1698703346
 player.gd::GDScript::-1::1698678453::0::1::::<>CharacterBody2D<>::
 player.png::CompressedTexture2D::5336030316911951021::1697074386::1697321367::1::::<><>::
-player.tscn::PackedScene::3786166390850884142::1698700627::0::1::::<><>::res://scenes/game_objects/player/player.gd<>uid://cia2v0rngro2x::::res://scenes/game_objects/player/player.png<>uid://c448lqc31as10::::res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn<>uid://2i160vn64cvs::::res://scenes/components/health_component.tscn<>uid://de0yvh8123itg::::res://scenes/components/velocity_component.tscn<>uid://dp5a6dhmv8bkn::::res://scenes/components/health_bar_component.tscn<>uid://xewnqnrkwdl4::::res://scenes/components/RandomHitSoundComponent.tscn<>uid://c5ti856evlraf::::res://assets/audio/impactMining_000.ogg<>uid://dly7v7vc6y84s::::res://assets/audio/impactMining_001.ogg<>uid://feuiurweq7rw::::res://assets/audio/impactMining_002.ogg<>uid://dkdqjwwf1mrfr::::res://assets/audio/impactMining_003.ogg<>uid://d1rv0mdd86xa::::res://assets/audio/impactMining_004.ogg
+player.tscn::PackedScene::3786166390850884142::1698703346::0::1::::<><>::res://scenes/game_objects/player/player.gd<>uid://cia2v0rngro2x::::res://scenes/game_objects/player/player.png<>uid://c448lqc31as10::::res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn<>uid://2i160vn64cvs::::res://scenes/components/health_component.tscn<>uid://de0yvh8123itg::::res://scenes/components/velocity_component.tscn<>uid://dp5a6dhmv8bkn::::res://scenes/components/health_bar_component.tscn<>uid://xewnqnrkwdl4::::res://scenes/components/RandomHitSoundComponent.tscn<>uid://c5ti856evlraf::::res://assets/audio/impactMining_000.ogg<>uid://dly7v7vc6y84s::::res://assets/audio/impactMining_001.ogg<>uid://feuiurweq7rw::::res://assets/audio/impactMining_002.ogg<>uid://dkdqjwwf1mrfr::::res://assets/audio/impactMining_003.ogg<>uid://d1rv0mdd86xa::::res://assets/audio/impactMining_004.ogg
 ::res://scenes/game_objects/wizard_enemy/::1698676979
 enemy_staff.png::CompressedTexture2D::8717539823295239781::1698020102::1698020137::1::::<><>::
 wizard.png::CompressedTexture2D::5184381125050810026::1697931402::1697931434::1::::<><>::
@@ -137,12 +139,12 @@ wizard_attack.gd::GDScript::-1::1698100020::0::1::::<>StaticBody2D<>::
 wizard_attack.tscn::PackedScene::6136877493482107140::1698108809::0::1::::<><>::uid://c1wiag2t41pt8
 wizard_enemy.gd::GDScript::-1::1698676930::0::1::::<>CharacterBody2D<>::
 wizard_enemy.tscn::PackedScene::2757411001027140767::1698676979::0::1::::<><>::res://scenes/game_objects/wizard_enemy/wizard_enemy.gd<>uid://2i160vn64cvs
-::res://scenes/main/::1698700626
+::res://scenes/main/::1698703345
 main.gd::GDScript::-1::1697675183::0::1::::<>Node2D<>::
-main.tscn::PackedScene::7379627142998003787::1698700626::0::1::::<><>::uid://s2rcbcy1p34f::::res://scenes/ui/arena_time_ui.tscn<>uid://ceewxkeei5li1::::res://scenes/manager/enemy_manager.tscn<>res://scenes/main/main.gd<>uid://ix1u6i3v8r2x::::res://scenes/game_camera/camera_2d.tscn<>uid://b27vnuo8t1eeu::::res://resources/tileset.tres<>uid://bt7buwa8p7nsg::::res://scenes/game_objects/player/player.tscn<>uid://cn6a1sxoope8w::::res://scenes/ui/end_screen.tscn<>uid://ctyxsf56cd8b8::::res://scenes/manager/arena_time_manager.tscn<>uid://bxktlgx4yqcfl::::res://scenes/manager/experience_manager.tscn<>uid://cnulrfnwev1f6::::res://scenes/manager/upgrade_manager.tscn<>uid://csn2n5rnynbuo::::res://scenes/ui/experience_bar.tscn<>uid://bi8fomspbikyg::::res://scenes/game_objects/experience_vial/experience_vial.tscn<>uid://bfjyfkyftbffj::::res://scenes/game_objects/wizard_enemy/wizard_enemy.tscn<>uid://cjaq5q4j8umw1::::res://scenes/ui/vignette.tscn
-::res://scenes/manager/::1698700627
+main.tscn::PackedScene::7379627142998003787::1698703345::0::1::::<><>::uid://s2rcbcy1p34f::::res://scenes/ui/arena_time_ui.tscn<>uid://ceewxkeei5li1::::res://scenes/manager/enemy_manager.tscn<>res://scenes/main/main.gd<>uid://ix1u6i3v8r2x::::res://scenes/game_camera/camera_2d.tscn<>uid://b27vnuo8t1eeu::::res://resources/tileset.tres<>uid://bt7buwa8p7nsg::::res://scenes/game_objects/player/player.tscn<>uid://cn6a1sxoope8w::::res://scenes/ui/end_screen.tscn<>uid://ctyxsf56cd8b8::::res://scenes/manager/arena_time_manager.tscn<>uid://bxktlgx4yqcfl::::res://scenes/manager/experience_manager.tscn<>uid://cnulrfnwev1f6::::res://scenes/manager/upgrade_manager.tscn<>uid://csn2n5rnynbuo::::res://scenes/ui/experience_bar.tscn<>uid://bi8fomspbikyg::::res://scenes/game_objects/experience_vial/experience_vial.tscn<>uid://bfjyfkyftbffj::::res://scenes/game_objects/wizard_enemy/wizard_enemy.tscn<>uid://cjaq5q4j8umw1::::res://scenes/ui/vignette.tscn
+::res://scenes/manager/::1698703346
 arena_time_manager.gd::GDScript::-1::1698540498::0::1::::<>Node<>::
-arena_time_manager.tscn::PackedScene::6157403408102378975::1698700627::0::1::::<><>::res://scenes/manager/arena_time_manager.gd<>uid://cn6a1sxoope8w::::res://scenes/ui/end_screen.tscn
+arena_time_manager.tscn::PackedScene::6157403408102378975::1698703346::0::1::::<><>::res://scenes/manager/arena_time_manager.gd<>uid://cn6a1sxoope8w::::res://scenes/ui/end_screen.tscn
 enemy_manager.gd::GDScript::-1::1698283506::0::1::::<>Node2D<>::
 enemy_manager.tscn::PackedScene::5063231631661589190::1698284836::0::1::::<><>::res://scenes/manager/enemy_manager.gd<>uid://dt54py8w8mx4i
 experience_manager.gd::GDScript::-1::1698617423::0::1::::<>Node<>::
@@ -151,7 +153,7 @@ upgrade_manager.gd::GDScript::-1::1698616433::0::1::::<>Node<>::
 upgrade_manager.tscn::PackedScene::5727282418883621401::1698618410::0::1::::<><>::res://scenes/manager/upgrade_manager.gd<>uid://h8hfn1f3i18r
 ::res://scenes/test_scenes/::1698017942
 particle_test_scene.tscn::PackedScene::5681392014616554764::1698017942::0::1::::<><>::uid://bstgamhxxy2n6
-::res://scenes/ui/::1698700653
+::res://scenes/ui/::1698703401
 ability_upgrade_card.gd::GDScript::-1::1698538013::0::1::::<>PanelContainer<>::
 ability_upgrade_card.tscn::PackedScene::3272403239210429629::1698700440::0::1::::<><>::res://scenes/ui/ability_upgrade_card.gd<>uid://xewnqnrkwdl4::::res://scenes/components/RandomHitSoundComponent.tscn<>uid://bap25i36x6so6::::res://assets/audio/switch1.ogg<>uid://wjinl12mckx6::::res://assets/audio/switch2.ogg<>uid://dgnj1u85bbmgq::::res://assets/audio/switch3.ogg<>uid://dgtsaqg3ebrvq::::res://assets/audio/switch4.ogg<>uid://4wobed8fs8k2::::res://assets/audio/switch5.ogg<>uid://dqalv65owss4e::::res://assets/audio/switch6.ogg<>uid://cayjctfo124xw::::res://assets/audio/switch7.ogg<>uid://b32hasowaslet::::res://assets/audio/switch8.ogg<>uid://dloy86dq7qdpn::::res://assets/audio/switch9.ogg<>uid://k6slwwvno4mu::::res://assets/audio/switch10.ogg
 arena_time_ui.gd::GDScript::-1::1697321032::0::1::::<>CanvasLayer<>::
@@ -167,5 +169,5 @@ sound_button.tscn::PackedScene::1366091823278500961::1698700440::0::1::::<><>::u
 upgrade_ui.gd::GDScript::-1::1698534851::0::1::::<>CanvasLayer<>::
 upgrade_ui.tscn::PackedScene::559881042502495867::1698614438::0::1::::<><>::uid://bmvgad0tlyh14
 vignette.gd::GDScript::-1::1698672463::0::1::::<>CanvasLayer<>::
-vignette.gdshader::Shader::-1::1698700653::0::1::::<><>::
+vignette.gdshader::Shader::-1::1698703401::0::1::::<><>::
 vignette.tscn::PackedScene::5405566891456652870::1698700440::0::1::::<><>::res://scenes/ui/vignette.gd<>res://scenes/ui/vignette.gdshader

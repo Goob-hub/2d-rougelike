@@ -233,6 +233,7 @@ theme_override_constants/separation = 16
 [node name="Title" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"BlueFontOutline"
 theme_override_font_sizes/font_size = 32
 text = "Victory"
 horizontal_alignment = 1
@@ -240,6 +241,7 @@ horizontal_alignment = 1
 [node name="Description" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"BlueFontOutline"
 text = "You Win!"
 horizontal_alignment = 1
 

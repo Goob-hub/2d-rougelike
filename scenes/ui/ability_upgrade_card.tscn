@@ -248,12 +248,12 @@ script = ExtResource("1_g6bop")
 
 [node name="RandomHoverSound" parent="." instance=ExtResource("2_y58c3")]
 volume_db = -15.91
-streams = Array[AudioStream]([ExtResource("3_wuijm"), ExtResource("4_bshma"), ExtResource("5_2t7ax"), ExtResource("6_21nrl")])
+audio_streams = Array[AudioStream]([ExtResource("3_wuijm"), ExtResource("4_bshma"), ExtResource("5_2t7ax"), ExtResource("6_21nrl"), ExtResource("7_nrdgw")])
 min_pitch = 0.5
 max_pitch = 0.7
 
 [node name="RandomClickSound" parent="." instance=ExtResource("2_y58c3")]
-streams = Array[AudioStream]([ExtResource("7_nrdgw"), ExtResource("8_fnrbv"), ExtResource("9_crycn"), ExtResource("10_kq6gl"), ExtResource("11_aaubt"), ExtResource("12_o28o5")])
+audio_streams = Array[AudioStream]([ExtResource("8_fnrbv"), ExtResource("9_crycn"), ExtResource("10_kq6gl"), ExtResource("11_aaubt"), ExtResource("12_o28o5")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -284,7 +284,8 @@ theme_type_variation = &"AlternatePanelContainer"
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.148438, 0.167969, 0.265625, 1)
+theme_type_variation = &"BlueFontOutline"
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
 theme_override_constants/outline_size = 8
 theme_override_constants/shadow_outline_size = 8
 theme_override_font_sizes/font_size = 32
@@ -301,6 +302,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_fs1gk")
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"BlueFontOutline"
 theme_override_colors/font_outline_color = Color(0.148438, 0.167969, 0.265625, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 4

@@ -219,4 +219,4 @@ libraries = {
 }
 
 [node name="RandomHitSoundComponent" parent="." instance=ExtResource("7_4wm0e")]
-streams = Array[AudioStream]([ExtResource("8_foqqs"), ExtResource("9_p1egj"), ExtResource("10_eb27y"), ExtResource("11_033p4"), ExtResource("12_p5vla")])
+audio_streams = Array[AudioStream]([ExtResource("8_foqqs"), ExtResource("9_p1egj"), ExtResource("10_eb27y"), ExtResource("11_033p4"), ExtResource("12_p5vla")])

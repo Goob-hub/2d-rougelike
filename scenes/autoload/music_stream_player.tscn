@@ -8,6 +8,7 @@ process_mode = 3
 stream = ExtResource("1_ev8qj")
 volume_db = -25.0
 autoplay = true
+bus = &"music"
 script = ExtResource("2_f4o0k")
 
 [node name="Timer" type="Timer" parent="."]
