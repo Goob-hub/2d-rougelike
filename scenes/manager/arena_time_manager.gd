@@ -25,6 +25,7 @@ func get_time_elapsed():
 
 
 func on_timer_timeout():
+	GameEvents.emit_game_over()
 	var end_screen = end_screen_scene.instantiate()
 	end_screen.play_victory_animation()
 	add_child(end_screen)

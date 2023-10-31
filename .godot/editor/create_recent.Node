@@ -1,3 +1,4 @@
+AnimationPlayer
 VBoxContainer
 Label
 HSlider
@@ -9,7 +10,6 @@ Timer
 AudioStreamPlayer
 Button
 AudioStreamPlayer2D
-AnimationPlayer
 ColorRect
 GPUParticles2D
 AnimationTree

@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-signal back_pressed
-
 @onready var sfx_slider: HSlider = $%SfxSlider
 @onready var music_slider: HSlider = $%MusicSlider
 @onready var window_button: Button = %WindowButton
@@ -48,8 +46,7 @@ func on_window_pressed():
 
 
 func on_back_pressed():
-	back_pressed.emit()
-	queue_free()
+	$AnimationPlayer.play("exit")
 
 
 func on_audio_slider_changed(value: float, bus_name: String):
