@@ -9,6 +9,8 @@ func _ready():
 
 
 func on_play_pressed():
+	ScreenTransition.transition()
+	await ScreenTransition.transitioned_halfway
 	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 
 
@@ -18,5 +20,7 @@ func on_options_pressed():
 
 
 func on_quit_pressed():
+	ScreenTransition.transition()
+	await ScreenTransition.transitioned_halfway
 	get_tree().quit()
 

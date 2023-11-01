@@ -1,5 +1,7 @@
-res://scenes/ui
 res://scenes/autoload
+res://resources/meta_upgrades
+res://other_scripts
+res://scenes/ui
 res://scenes/components
 res://resources/upgrades
 res://resources/particles

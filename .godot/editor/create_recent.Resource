@@ -1,4 +1,4 @@
+Resource
 AbilityUpgrade
 Theme
-Resource
 TileSet

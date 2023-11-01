@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://coon2vvf8jcq4"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrades.gd" id="1_ib2nh"]
+
+[resource]
+script = ExtResource("1_ib2nh")
+id = "vial_droprate"
+max_quantity = 3
+value_percent = 0.1
+title = "Vial droprate"
+description = "Increases experience vial droprate by 10%"
