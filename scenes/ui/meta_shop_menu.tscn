@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3t3rxlxnnctq"]
+
+[ext_resource type="Script" path="res://scenes/ui/meta_shop_menu.gd" id="1_o6amd"]
+[ext_resource type="PackedScene" uid="uid://cjaq5q4j8umw1" path="res://scenes/ui/vignette.tscn" id="2_4ps81"]
+[ext_resource type="Resource" uid="uid://coon2vvf8jcq4" path="res://resources/meta_upgrades/vial_droprate.tres" id="2_o0w4l"]
+
+[node name="MetaShopMenu" type="CanvasLayer"]
+script = ExtResource("1_o6amd")
+meta_upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrades.gd")]([ExtResource("2_o0w4l")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[node name="Vignette" parent="." instance=ExtResource("2_4ps81")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 3

@@ -3,6 +3,7 @@ extends CanvasLayer
 
 func _ready():
 	get_tree().paused = true
+	MetaProgression.save()
 	$%Restart.pressed.connect(on_restart_pressed)
 	$%Quit.pressed.connect(on_quit_pressed)
 	
@@ -27,4 +28,7 @@ func play_victory_animation():
 
 
 func on_quit_pressed():
-	get_tree().quit()
+	ScreenTransition.transition()
+	await ScreenTransition.transitioned_halfway
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	get_tree().paused = false

@@ -6,6 +6,7 @@
 script = ExtResource("1_ib2nh")
 id = "vial_droprate"
 max_quantity = 3
+experience_cost = 100.0
 value_percent = 0.1
 title = "Vial droprate"
 description = "Increases experience vial droprate by 10%"

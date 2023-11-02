@@ -256,5 +256,5 @@ text = "Restart"
 [node name="Quit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_ek8by")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Quit
+text = "Quit to menu
 "

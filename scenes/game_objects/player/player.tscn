@@ -167,7 +167,7 @@ player_health_component = NodePath("HealthComponent")
 hurt_delay_timer = NodePath("HurtDelayTimer")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_jxuib")]
-max_health = 15.0
+max_health = 1.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_w04cn")]
 mov_speed = 100
