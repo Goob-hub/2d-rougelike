@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Visuals/Sprite2D
 @onready var staff_sprite = $Visuals/StaffSprite
+@onready var health_component = $HealthComponent
 
 @export var attack_range: float = 20000
 

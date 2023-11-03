@@ -1,3 +1,6 @@
+ScrollContainer
+Label
+HBoxContainer
 GridContainer
 CanvasLayer
 ColorRect
@@ -6,9 +9,7 @@ MarginContainer
 VBoxContainer
 PanelContainer
 ProgressBar
-Label
 TextureRect
-HBoxContainer
 Node
 ResourcePreloader
 AnimationPlayer
@@ -30,4 +31,3 @@ CharacterBody2D
 ShapeCast2D
 Panel
 Node3D
-Camera2D

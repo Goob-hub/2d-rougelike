@@ -1,7 +1,7 @@
 extends Node2D
 
-const SPAWN_RADIUS: int = 375
-const MINIMUM_TIMER_WAIT_TIME: float = .3
+const SPAWN_RADIUS: int = 370
+const MINIMUM_TIMER_WAIT_TIME: float = .4
 
 @export var basic_enemy_scene: PackedScene
 @export var wizard_enemy_scene: PackedScene
@@ -56,6 +56,10 @@ func on_timer_timeout():
 	entities_layer.add_child(enemy)
 	
 	enemy.global_position = get_spawn_position()
+	
+#	Grab global difficulty modifier and change enemies health multipliers depending on difficulty
+#	enemy.health_component.health_multiplier = .5
+#	enemy.health_component.update_health_values()
 
 
 func on_difficulty_increased(current_difficulty: int):

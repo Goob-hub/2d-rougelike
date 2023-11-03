@@ -4,11 +4,16 @@ class_name HealthComponent
 signal dead
 signal damaged
 
-@export var max_health: float = 10
+@export var max_health: float
 var current_health: float
-
+var health_multiplier = 1
 
 func _ready():
+	current_health = max_health
+
+
+func update_health_values():
+	max_health *= health_multiplier
 	current_health = max_health
 
 

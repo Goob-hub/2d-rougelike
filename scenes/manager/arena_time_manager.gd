@@ -11,6 +11,10 @@ var arena_difficulty = 0
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
+	
+	#Depending on the global difficulty, make the enemies spawn faster sooner
+	#arena_difficulty = 2 on normal
+	#arena_difficulty = 3 and difficulty_interval = 3 on hard
 
 
 func _process(delta):

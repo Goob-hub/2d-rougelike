@@ -361,7 +361,7 @@ _data = {
 "walking": SubResource("Animation_tg25f")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_04a8n"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_givh3"]
 resource_local_to_scene = true
 shader = ExtResource("7_kt7pe")
 shader_parameter/lerp_percent = 0.0
@@ -397,7 +397,7 @@ body_animation = ExtResource("5_fab14")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_tg178")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_04a8n")
+hit_flash_material = SubResource("ShaderMaterial_givh3")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_e18xp")]
 mov_speed = 35
@@ -406,7 +406,7 @@ mov_speed = 35
 max_health = 30.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_11qct")]
-drop_percent = 1.0
+drop_percent = 0.7
 health_component = NodePath("../HealthComponent")
 
 [node name="AttackComponent" parent="." instance=ExtResource("9_isgxr")]

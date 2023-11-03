@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var experience_gained: float = 5
+@export var experience_gained: float 
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var sprite = $Visuals/Sprite2D

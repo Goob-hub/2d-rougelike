@@ -14,12 +14,18 @@ var enemies_hurting_player = 0
 var mov_speed_multiplier = 1
 
 
+
 func _ready():
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	player_hurt_box.body_entered.connect(on_body_entered)
 	player_hurt_box.body_exited.connect(on_body_exited)
 	
 	hurt_delay_timer.timeout.connect(on_timer_timeout)
+	
+	var health_upgrade = MetaProgression.get_meta_upgrade("player_health")
+	if(health_upgrade != null):
+		player_health_component.health_multiplier += health_upgrade.quantity * health_upgrade.value_percent
+		player_health_component.update_health_values()
 
 
 func _process(delta):

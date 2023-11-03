@@ -1,11 +1,19 @@
 extends Node
 
-@export_range(0, 1) var drop_percent: float = .5
+@export_range(0, 1) var drop_percent: float
 @export var vial_scene: PackedScene
 @export var health_component: Node
 
+var drop_percent_multiplier = 1
+
 func _ready():
 	(health_component as HealthComponent).dead.connect(on_died)
+	
+	var drop_rate_upgrade = MetaProgression.get_meta_upgrade("vial_droprate")
+	if drop_rate_upgrade != null:
+		print(drop_percent)
+		drop_percent += drop_rate_upgrade.value_percent * drop_rate_upgrade.quantity
+		print(drop_percent)
 
 
 func on_died():
@@ -15,7 +23,7 @@ func on_died():
 	if(not owner is Node2D):
 		return
 	
-	if(randf() < drop_percent):
+	if(randf() < drop_percent * drop_percent_multiplier):
 		spawn_vial()
 
 

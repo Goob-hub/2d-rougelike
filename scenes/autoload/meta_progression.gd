@@ -27,7 +27,7 @@ func save():
 
 
 func add_meta_upgrade(upgrade: MetaUpgrade):
-	if(not save_data.meta_upgrades.has(upgrade)):
+	if(not save_data.meta_upgrades.has(upgrade.id)):
 		save_data.meta_upgrades[upgrade.id] = {
 			"name": upgrade.title,
 			"quantity": 0,
@@ -35,9 +35,15 @@ func add_meta_upgrade(upgrade: MetaUpgrade):
 		}
 	
 	save_data.meta_upgrades[upgrade.id].quantity += 1
-	print(save_data)
 	save()
 
 
 func on_exp_collected(number: float):
 	save_data.upgrade_currency_amount += number
+
+
+func get_meta_upgrade(upgrade_id: String):
+	if(save_data.meta_upgrades.has(upgrade_id)):
+		return save_data.meta_upgrades[upgrade_id]
+	else:
+		return null

@@ -28,7 +28,5 @@ func play_victory_animation():
 
 
 func on_quit_pressed():
-	ScreenTransition.transition()
-	await ScreenTransition.transitioned_halfway
-	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	ScreenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")
 	get_tree().paused = false
