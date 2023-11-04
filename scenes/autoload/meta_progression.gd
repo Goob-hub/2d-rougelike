@@ -3,6 +3,7 @@ extends Node
 const SAVE_FILE_PATH = "user://game.save"
 
 var save_data: Dictionary = {
+	"global_difficulty": "Normal",
 	"upgrade_currency_amount": 0,
 	"meta_upgrades": {}
 }
@@ -47,3 +48,16 @@ func get_meta_upgrade(upgrade_id: String):
 		return save_data.meta_upgrades[upgrade_id]
 	else:
 		return null
+
+
+func change_difficulty(difficulty: String):
+	save_data.global_difficulty = difficulty
+	save()
+
+
+func get_current_difficulty():
+	if(save_data.has("global_difficulty")):
+		return save_data.global_difficulty.to_lower()
+	else:
+		save_data.global_difficulty = "Normal"
+		return save_data.global_difficulty.to_lower()

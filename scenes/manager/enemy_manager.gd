@@ -28,9 +28,10 @@ func get_spawn_position():
 	for i in 4:
 		#From the players global position, move out the distance of spawn radius in specified direction to spawn enemies
 		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
+		var additional_offset = random_direction * 20
 		
 		#Creates parameters for a ray cast to be instantiated. Takes origin, end position, and bitmask to look for collision on
-		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1 << 0)
+		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position + additional_offset, 1 << 0)
 		
 		#Get main scene window in 2d and look for potential collisions using line between 2 points (Ray cast)
 		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters)

@@ -8,5 +8,5 @@ id = "player_health"
 max_quantity = 10
 experience_cost = 10.0
 value_percent = 0.2
-title = "More health"
-description = "Increases players health by 20%"
+title = "More Health"
+description = "Increases player health by 20%"

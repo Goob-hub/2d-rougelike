@@ -30,4 +30,3 @@ CollisionShape2D
 CharacterBody2D
 ShapeCast2D
 Panel
-Node3D

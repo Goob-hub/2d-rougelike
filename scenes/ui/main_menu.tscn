@@ -56,6 +56,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Go to shop"
 
+[node name="DifficultyButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_4jtxi")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Change difficulty"
+
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_4jtxi")]
 unique_name_in_owner = true
 layout_mode = 2

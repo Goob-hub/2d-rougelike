@@ -7,6 +7,7 @@ func _ready():
 	$%OptionsButton.pressed.connect(on_options_pressed)
 	$%QuitButton.pressed.connect(on_quit_pressed)
 	%ShopButton.pressed.connect(on_shop_pressed)
+	%DifficultyButton.pressed.connect(on_difficulty_pressed)
 
 
 func on_play_pressed():
@@ -26,3 +27,7 @@ func on_quit_pressed():
 
 func on_shop_pressed():
 	ScreenTransition.transition_to_scene("res://scenes/ui/meta_shop_menu.tscn")
+
+
+func on_difficulty_pressed():
+	ScreenTransition.transition_to_scene("res://scenes/ui/difficulty_menu.tscn")

@@ -8,6 +8,7 @@ signal game_over
 var is_player_dead = false
 var is_game_paused = false
 
+
 func emit_experience_vial_collected(number: float):
 	experience_vial_collected.emit(number)
 
@@ -22,3 +23,5 @@ func emit_player_damaged():
 
 func emit_game_over():
 	game_over.emit()
+
+

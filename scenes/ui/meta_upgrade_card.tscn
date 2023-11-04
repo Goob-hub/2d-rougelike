@@ -196,12 +196,13 @@ theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 4
 mouse_filter = 2
 theme_override_constants/separation = 20
+alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 theme_type_variation = &"AlternatePanelContainer"
 
@@ -219,6 +220,7 @@ autowrap_mode = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fs1gk")
 
@@ -231,11 +233,12 @@ theme_override_colors/font_outline_color = Color(0.148438, 0.167969, 0.265625, 1
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 4
 theme_override_constants/line_spacing = 2
-text = "This is where a description of the text that will be displayed here will exists."
+text = "This is where a description of stuff about the upgrade or something "
 autowrap_mode = 2
 
 [node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_l31ek")
 

@@ -3,7 +3,7 @@ extends CanvasLayer
 @export var meta_upgrades: Array[MetaUpgrade]
 
 @onready var grid_container = %GridContainer
-@onready var back_to_menu = $MarginContainer/BackToMenu
+@onready var back_to_menu = %BackToMenu
 
 var meta_upgrade_card = preload("res://scenes/ui/meta_upgrade_card.tscn")
 

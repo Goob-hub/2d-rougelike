@@ -1,8 +1,11 @@
+res://scenes/ui
+C:/Users/soliz/Desktop/TheArtOfWar
+C:/Users/soliz/Desktop
+res://
 res://resources
 res://scenes/autoload
 res://resources/meta_upgrades
 res://other_scripts
-res://scenes/ui
 res://scenes/components
 res://resources/upgrades
 res://resources/particles
@@ -17,5 +20,3 @@ res://scenes/manager
 res://scenes/game_objects/experience_vial
 res://scenes/ability/sword_ability_controller
 res://scenes/ability/sword_ability
-res://scenes/game_camera
-res://scenes/main
