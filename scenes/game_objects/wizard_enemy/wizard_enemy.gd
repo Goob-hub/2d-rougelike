@@ -21,6 +21,9 @@ func _ready():
 
 func _process(delta):
 	var player = get_tree().get_first_node_in_group("player")
+	if(player == null):
+		return
+	
 	var distance_from_player = global_position.distance_squared_to(player.global_position)
 	
 	velocity_component.get_direction_to_player()

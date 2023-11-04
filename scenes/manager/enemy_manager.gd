@@ -1,16 +1,22 @@
 extends Node2D
 
 const SPAWN_RADIUS: int = 370
-const MINIMUM_TIMER_WAIT_TIME: float = .4
+const MINIMUM_TIMER_WAIT_TIME: float = .3
 
 @export var basic_enemy_scene: PackedScene
 @export var wizard_enemy_scene: PackedScene
 @export var arena_time_manager: Node
 
 var enemy_table = WeightedTable.new()
+var global_difficulty
+
+#Tracks whether or not the wizards weight has been changed
+var wizard_weight_changed = false
 
 func _ready():
+	global_difficulty = MetaProgression.get_current_difficulty()
 	enemy_table.add_item("basic_enemy", basic_enemy_scene, 100)
+	enemy_table.add_item("wizard_enemy", wizard_enemy_scene, 0)
 	
 	arena_time_manager.arena_difficulty_increased.connect(on_difficulty_increased)
 	$Timer.timeout.connect(on_timer_timeout)
@@ -61,15 +67,27 @@ func on_timer_timeout():
 #	Grab global difficulty modifier and change enemies health multipliers depending on difficulty
 #	enemy.health_component.health_multiplier = .5
 #	enemy.health_component.update_health_values()
+	if(global_difficulty == "easy"):
+		enemy.health_component.health_multiplier = .5
+		enemy.health_component.update_health_values()
+	
+	if(global_difficulty == "normal"):
+		enemy.health_component.health_multiplier = 1
+		enemy.health_component.update_health_values()
+	
+	if(global_difficulty == "hard"):
+		enemy.health_component.health_multiplier = 1.5
+		enemy.health_component.update_health_values()
 
 
-func on_difficulty_increased(current_difficulty: int):
-	if(current_difficulty == 6):
-		enemy_table.add_item("wizard_enemy", wizard_enemy_scene, 10)
-	elif(current_difficulty > 8):
+func on_difficulty_increased(arena_difficulty: int):
+	if(arena_difficulty > 8 and wizard_weight_changed == false):
+		enemy_table.change_item_weight("wizard_enemy", 10)
+		wizard_weight_changed = true
+	elif(arena_difficulty > 16 and arena_difficulty < 32):
 		for enemy in enemy_table.items:
-			if(enemy["name"] == "wizard_enemy"):
+			if(enemy["name"] == "wizard_enemy" and enemy["weight"] < 15):
 				enemy["weight"] += 1
 	
-	var new_wait_time = maxf($Timer.wait_time - (.1 / 12 * current_difficulty), MINIMUM_TIMER_WAIT_TIME)
+	var new_wait_time = maxf($Timer.wait_time - (.1 / 12 * arena_difficulty), MINIMUM_TIMER_WAIT_TIME)
 	$Timer.wait_time = new_wait_time

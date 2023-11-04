@@ -11,9 +11,7 @@ func _ready():
 	
 	var drop_rate_upgrade = MetaProgression.get_meta_upgrade("vial_droprate")
 	if drop_rate_upgrade != null:
-		print(drop_percent)
 		drop_percent += drop_rate_upgrade.value_percent * drop_rate_upgrade.quantity
-		print(drop_percent)
 
 
 func on_died():

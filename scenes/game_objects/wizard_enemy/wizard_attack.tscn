@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cto0qf6itgnui"]
+[gd_scene load_steps=11 format=3 uid="uid://cto0qf6itgnui"]
 
 [ext_resource type="Texture2D" uid="uid://c1wiag2t41pt8" path="res://scenes/game_objects/wizard_enemy/WizardAttackNew.png" id="1_6b65b"]
 [ext_resource type="Script" path="res://scenes/game_objects/wizard_enemy/wizard_attack.gd" id="1_pndle"]
 [ext_resource type="Material" uid="uid://bstgamhxxy2n6" path="res://resources/particles/wizard_blood_particles.tres" id="2_oly7u"]
+[ext_resource type="PackedScene" uid="uid://bowhlrfh0l0ga" path="res://scenes/components/random_sound_player_component.tscn" id="4_h2l3c"]
+[ext_resource type="AudioStream" uid="uid://2fe6ro3khbns" path="res://assets/audio/wizard_attack_sound.wav" id="5_hwv8e"]
 
 [sub_resource type="Animation" id="Animation_i5s12"]
 length = 0.001
@@ -18,6 +20,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+
+[sub_resource type="Animation" id="Animation_2piei"]
+resource_name = "explode"
 
 [sub_resource type="Animation" id="Animation_yq7xa"]
 resource_name = "idle"
@@ -35,9 +40,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, -6.28319]
 }
-
-[sub_resource type="Animation" id="Animation_2piei"]
-resource_name = "explode"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jly6y"]
 _data = {
@@ -77,3 +79,7 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j1rn3")
+
+[node name="RandomSoundPlayerComponent" parent="." instance=ExtResource("4_h2l3c")]
+volume_db = -8.814
+streams = Array[AudioStream]([ExtResource("5_hwv8e")])

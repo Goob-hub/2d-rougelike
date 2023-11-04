@@ -2,23 +2,33 @@ extends Node
 
 signal arena_difficulty_increased(current_difficulty: int)
 
-const DIFFICULTY_INTERVAL = 5
 
 @onready var timer = $Timer
 @export var end_screen_scene: PackedScene
 
+var difficulty_interval = 5
 var arena_difficulty = 0
+var current_difficulty 
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
+	current_difficulty = MetaProgression.get_current_difficulty()
 	
 	#Depending on the global difficulty, make the enemies spawn faster sooner
-	#arena_difficulty = 2 on normal
-	#arena_difficulty = 3 and difficulty_interval = 3 on hard
+	if(current_difficulty == "easy"):
+		difficulty_interval = 5
+	
+	if(current_difficulty == "normal"):
+		difficulty_interval = 3
+		arena_difficulty = 4
+	
+	if(current_difficulty == "hard"):
+		difficulty_interval = 1
+		arena_difficulty = 8
 
 
 func _process(delta):
-	var target_interval = timer.wait_time - ((arena_difficulty + 1) * DIFFICULTY_INTERVAL)
+	var target_interval = timer.wait_time - ((arena_difficulty + 1) * difficulty_interval)
 	if(timer.time_left <= target_interval):
 		arena_difficulty += 1
 		arena_difficulty_increased.emit(arena_difficulty)

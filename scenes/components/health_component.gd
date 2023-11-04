@@ -9,7 +9,7 @@ var current_health: float
 var health_multiplier = 1
 
 func _ready():
-	current_health = max_health
+	current_health = max_health * health_multiplier
 
 
 func update_health_values():

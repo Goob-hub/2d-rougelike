@@ -11,12 +11,16 @@ extends StaticBody2D
 var direction = null
 
 func _ready():
+	$RandomSoundPlayerComponent.play_random_sound()
 	timer.timeout.connect(on_timer_timeout)
 
 
 func _process(delta):
+	var player = get_tree().get_first_node_in_group("player") as Node2D
+	if(player == null):
+		return
+	
 	if(direction == null):
-		var player = get_tree().get_first_node_in_group("player") as Node2D
 		direction = (player.global_position - self.global_position).normalized()
 	
 	global_position += (direction * speed * delta)

@@ -81,6 +81,7 @@ func on_body_entered(other_body: Node2D):
 	enemies_hurting_player += 1
 	check_for_damage()
 	if(other_body.get_parent().name == "Projectiles"):
+		player_health_component.damage(1)
 		other_body.queue_free()
 
 

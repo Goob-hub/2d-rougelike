@@ -44,6 +44,7 @@ func on_card_select():
 		if other_card == self:
 			continue
 		else:
+			other_card.is_clicked = true
 			other_card.play_discard()
 	
 	await $HoverAnimation.animation_finished
