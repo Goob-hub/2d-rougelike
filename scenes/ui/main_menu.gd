@@ -3,6 +3,7 @@ extends CanvasLayer
 var options_scene = preload("res://scenes/ui/options.tscn")
 
 func _ready():
+	get_tree().paused = false
 	$%PlayButton.pressed.connect(on_play_pressed)
 	$%OptionsButton.pressed.connect(on_options_pressed)
 	$%QuitButton.pressed.connect(on_quit_pressed)

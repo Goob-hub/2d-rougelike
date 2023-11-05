@@ -81,5 +81,5 @@ autostart = true
 shape = SubResource("RectangleShape2D_j1rn3")
 
 [node name="RandomSoundPlayerComponent" parent="." instance=ExtResource("4_h2l3c")]
-volume_db = -8.814
+volume_db = -14.102
 streams = Array[AudioStream]([ExtResource("5_hwv8e")])

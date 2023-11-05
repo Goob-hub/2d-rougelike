@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgus1back8ymg"
-path="res://.godot/imported/basic_enemy.png-0b4c0d8a20383cd9f35b05bd81a2d6fd.ctex"
+uid="uid://d1axo1pqejhds"
+path="res://.godot/imported/bat_enemy.png-4cdb2cb258503543c6a0450337cd29a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game_objects/basic_enemy/basic_enemy.png"
-dest_files=["res://.godot/imported/basic_enemy.png-0b4c0d8a20383cd9f35b05bd81a2d6fd.ctex"]
+source_file="res://scenes/game_objects/bat_enemy/bat_enemy.png"
+dest_files=["res://.godot/imported/bat_enemy.png-4cdb2cb258503543c6a0450337cd29a8.ctex"]
 
 [params]
 

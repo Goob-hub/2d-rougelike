@@ -1,3 +1,8 @@
+Node
+AnimationPlayer
+CharacterBody2D
+Sprite2D
+CollisionShape2D
 ScrollContainer
 Label
 HBoxContainer
@@ -10,9 +15,7 @@ VBoxContainer
 PanelContainer
 ProgressBar
 TextureRect
-Node
 ResourcePreloader
-AnimationPlayer
 HSlider
 PointLight2D
 Timer
@@ -21,12 +24,9 @@ Button
 AudioStreamPlayer2D
 GPUParticles2D
 AnimationTree
-Sprite2D
 Node2D
 Area2D
 StaticBody2D
 RigidBody2D
-CollisionShape2D
-CharacterBody2D
 ShapeCast2D
 Panel

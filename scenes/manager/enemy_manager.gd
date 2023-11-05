@@ -3,23 +3,32 @@ extends Node2D
 const SPAWN_RADIUS: int = 370
 const MINIMUM_TIMER_WAIT_TIME: float = .3
 
+@onready var timer = $Timer
+@export var arena_time_manager: Node
+
 @export var basic_enemy_scene: PackedScene
 @export var wizard_enemy_scene: PackedScene
-@export var arena_time_manager: Node
+@export var bat_enemy_scene: PackedScene
+@export var tank_enemy_scene: PackedScene
 
 var enemy_table = WeightedTable.new()
 var global_difficulty
 
-#Tracks whether or not the wizards weight has been changed
+#Tracks whether or not enemy weight has been changed from 0 to it's base weight
 var wizard_weight_changed = false
+var bat_weight_changed = false
+var tank_weight_changed = false
 
 func _ready():
 	global_difficulty = MetaProgression.get_current_difficulty()
-	enemy_table.add_item("basic_enemy", basic_enemy_scene, 100)
+
+	enemy_table.add_item("basic_enemy", basic_enemy_scene, 120)
+	enemy_table.add_item("bat_enemy", bat_enemy_scene, 0)
 	enemy_table.add_item("wizard_enemy", wizard_enemy_scene, 0)
+	enemy_table.add_item("tank_enemy", tank_enemy_scene, 0)
 	
 	arena_time_manager.arena_difficulty_increased.connect(on_difficulty_increased)
-	$Timer.timeout.connect(on_timer_timeout)
+	timer.timeout.connect(on_timer_timeout)
 
 
 func get_spawn_position():
@@ -52,12 +61,15 @@ func get_spawn_position():
 
 
 func on_timer_timeout():
-	$Timer.start()
+	timer.start()
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if(player == null):
 		return
 	
 	var rand_enemy_scene = enemy_table.choose_item()
+	if(rand_enemy_scene == null):
+		return
+	
 	var enemy = rand_enemy_scene.instantiate() as Node2D
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	entities_layer.add_child(enemy)
@@ -68,26 +80,36 @@ func on_timer_timeout():
 #	enemy.health_component.health_multiplier = .5
 #	enemy.health_component.update_health_values()
 	if(global_difficulty == "easy"):
-		enemy.health_component.health_multiplier = .5
-		enemy.health_component.update_health_values()
-	
-	if(global_difficulty == "normal"):
 		enemy.health_component.health_multiplier = 1
 		enemy.health_component.update_health_values()
 	
-	if(global_difficulty == "hard"):
+	if(global_difficulty == "normal"):
 		enemy.health_component.health_multiplier = 1.5
+		enemy.health_component.update_health_values()
+	
+	if(global_difficulty == "hard"):
+		enemy.health_component.health_multiplier = 2
 		enemy.health_component.update_health_values()
 
 
 func on_difficulty_increased(arena_difficulty: int):
-	if(arena_difficulty > 8 and wizard_weight_changed == false):
+	if(arena_difficulty > 6 and bat_weight_changed == false):
+		enemy_table.change_item_weight("bat_enemy", 30)
+		bat_weight_changed = true
+	
+	if(arena_difficulty > 12 and wizard_weight_changed == false):
 		enemy_table.change_item_weight("wizard_enemy", 10)
 		wizard_weight_changed = true
-	elif(arena_difficulty > 16 and arena_difficulty < 32):
-		for enemy in enemy_table.items:
-			if(enemy["name"] == "wizard_enemy" and enemy["weight"] < 15):
-				enemy["weight"] += 1
 	
-	var new_wait_time = maxf($Timer.wait_time - (.1 / 12 * arena_difficulty), MINIMUM_TIMER_WAIT_TIME)
-	$Timer.wait_time = new_wait_time
+	if(arena_difficulty > 16 and tank_weight_changed == false):
+		enemy_table.change_item_weight("tank_enemy", 10)
+		tank_weight_changed = true
+	
+#	if(arena_difficulty > 20 and arena_difficulty < 35):
+#		for enemy in enemy_table.items:
+#			if(enemy["name"] == "wizard_enemy" and enemy["weight"] < 15):
+#				enemy["weight"] += 1
+	
+	if(timer.wait_time > .3):
+		var new_wait_time = maxf(timer.wait_time - (.1 / 12 * arena_difficulty), MINIMUM_TIMER_WAIT_TIME)
+		timer.wait_time = new_wait_time

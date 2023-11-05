@@ -6,8 +6,13 @@ signal hit
 @export var health_component: HealthComponent
 @export var floating_text: PackedScene
 
+var has_block_ability = false
+var ability_list = {}
+
 func _ready():
 	area_entered.connect(on_area_entered)
+	if(get_parent().ability_list != null):
+		ability_list = get_parent().ability_list
 
 
 func on_area_entered(other_area: Area2D):
@@ -15,6 +20,9 @@ func on_area_entered(other_area: Area2D):
 		return
 	
 	if(health_component == null):
+		return
+	
+	if(ability_list.has("block_ability") and ability_list.block_ability.check_if_blocked()):
 		return
 	
 	var hitbox_component = other_area as HitBoxComponent

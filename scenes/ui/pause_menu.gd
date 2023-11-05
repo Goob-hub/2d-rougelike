@@ -23,6 +23,5 @@ func on_options_pressed():
 
 
 func on_quit_to_menu_pressed():
-	get_tree().paused = false
 	ScreenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")
 

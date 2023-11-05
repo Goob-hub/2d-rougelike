@@ -9,10 +9,11 @@ extends CharacterBody2D
 @onready var visuals_layer = $Visuals
 @onready var velocity_component = $VelocityComponent
 @onready var hit_sound_component = $RandomHitSoundComponent
+@onready var block_ability_component = $Abilities/BlockAbilityComponent
+
 
 var enemies_hurting_player = 0
 var mov_speed_multiplier = 1
-
 
 
 func _ready():
@@ -64,11 +65,21 @@ func get_mov_vector():
 
 
 func check_for_damage():
-	if(enemies_hurting_player <= 0 or !hurt_delay_timer.is_stopped()):
+	if(enemies_hurting_player <= 0 or not hurt_delay_timer.is_stopped()):
 		return
 	
 	if(player_health_component == null):
 		print("No health component assigned.")
+		return
+	
+	damage_player(1 * enemies_hurting_player)
+
+
+func damage_player(damage: float):
+	var is_attack_blocked = block_ability_component.check_if_blocked()
+	
+	if(is_attack_blocked == true):
+		is_attack_blocked = false
 		return
 	
 	player_health_component.damage(1 * enemies_hurting_player)
@@ -81,7 +92,8 @@ func on_body_entered(other_body: Node2D):
 	enemies_hurting_player += 1
 	check_for_damage()
 	if(other_body.get_parent().name == "Projectiles"):
-		player_health_component.damage(1)
+		print("player damaged by projectile")
+		damage_player(1)
 		other_body.queue_free()
 
 

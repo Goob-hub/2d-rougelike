@@ -51,7 +51,9 @@ unique_name_in_owner = true
 position = Vector2(889, 551)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
+position = Vector2(24, 9)
 
 [node name="Projectiles" type="Node2D" parent="." groups=["projectiles"]]
+position = Vector2(47, 42)
 
 [node name="Vignette" parent="." instance=ExtResource("14_ovfd4")]

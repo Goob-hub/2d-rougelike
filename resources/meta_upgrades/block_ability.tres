@@ -7,6 +7,6 @@ script = ExtResource("1_x1tgl")
 id = "block_ability"
 max_quantity = 5
 experience_cost = 20.0
-value_percent = 0.02
+value_percent = 0.03
 title = "Block Ability"
 description = "Increases your chance to block incoming damage by 2%."

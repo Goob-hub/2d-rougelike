@@ -13,6 +13,7 @@ extends CharacterBody2D
 
 
 var is_reset = true
+var ability_list = {}
 
 func _ready():
 	attack_component.is_attacking.connect(on_attack)

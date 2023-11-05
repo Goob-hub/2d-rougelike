@@ -361,7 +361,7 @@ _data = {
 "walking": SubResource("Animation_tg25f")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_givh3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lf0l"]
 resource_local_to_scene = true
 shader = ExtResource("7_kt7pe")
 shader_parameter/lerp_percent = 0.0
@@ -397,16 +397,16 @@ body_animation = ExtResource("5_fab14")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_tg178")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_givh3")
+hit_flash_material = SubResource("ShaderMaterial_4lf0l")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_e18xp")]
 mov_speed = 35
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_ldxb4")]
-max_health = 30.0
+max_health = 10.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_11qct")]
-drop_percent = 0.7
+drop_percent = 0.4
 health_component = NodePath("../HealthComponent")
 
 [node name="AttackComponent" parent="." instance=ExtResource("9_isgxr")]
@@ -431,12 +431,10 @@ scale = Vector2(0.75, 0.6875)
 texture = ExtResource("11_bedos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_7rf0o")
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_p7kqg")]
-visible = false
 health_component = NodePath("../HealthComponent")
 
 [node name="HurtBoxShape" type="CollisionShape2D" parent="HurtBoxComponent"]
