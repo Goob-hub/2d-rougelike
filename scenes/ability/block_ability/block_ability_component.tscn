@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://scenes/ability/block_ability/block_ability_component.gd" id="1_4ejb0"]
 [ext_resource type="Texture2D" uid="uid://daxo3tmineq3u" path="res://scenes/ability/block_ability/block_image.png" id="2_ag1wv"]
 [ext_resource type="PackedScene" uid="uid://bowhlrfh0l0ga" path="res://scenes/components/random_sound_player_component.tscn" id="2_arf8n"]
-[ext_resource type="AudioStream" uid="uid://bnshu60qmjj10" path="res://assets/audio/impactPlate_heavy_004.ogg" id="3_6wdq6"]
+[ext_resource type="AudioStream" uid="uid://beecgi74xncnm" path="res://assets/audio/impactMetal_heavy_004.ogg" id="4_i350c"]
 
 [node name="BlockAbilityComponent" type="Node"]
 script = ExtResource("1_4ejb0")
 block_image = ExtResource("2_ag1wv")
 
 [node name="RandomSoundPlayerComponent" parent="." instance=ExtResource("2_arf8n")]
-streams = Array[AudioStream]([ExtResource("3_6wdq6")])
+streams = Array[AudioStream]([ExtResource("4_i350c")])

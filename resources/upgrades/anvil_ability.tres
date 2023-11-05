@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://c5y24yvrhl3h5"]
+
+[ext_resource type="PackedScene" uid="uid://c6v6m635urep1" path="res://scenes/ability/anvil_ability_controller/anvil_ability_controller.tscn" id="1_7pscd"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_ttfb4"]
+
+[resource]
+script = ExtResource("2_ttfb4")
+ability_controller_scene = ExtResource("1_7pscd")
+id = "anvil_ability"
+name = "Anvil ability"
+value_percent = 0.0
+max_quantity = 1
+description = "Summon anvils to crush your opponents. Large AOE attack."

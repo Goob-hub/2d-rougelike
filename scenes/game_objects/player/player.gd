@@ -47,14 +47,19 @@ func _process(delta):
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	print(upgrade)
 	if(upgrade.id == "mov_speed"):
 		mov_speed_multiplier += upgrade.value_percent
 		velocity_component.acceleration += 3
 		velocity_component.mov_speed = velocity_component.mov_speed * mov_speed_multiplier
 	
 	if(upgrade.id == "axe_ability"):
-		var axe_ability_scene = upgrade.ability_controller_scene.instantiate()
-		abilities.add_child(axe_ability_scene)
+		var axe_ability_instance = upgrade.ability_controller_scene.instantiate()
+		abilities.add_child(axe_ability_instance)
+	
+	if(upgrade.id == "anvil_ability"):
+		var anvil_ability_instance = upgrade.ability_controller_scene.instantiate()
+		abilities.add_child(anvil_ability_instance)
 
 
 func get_mov_vector():

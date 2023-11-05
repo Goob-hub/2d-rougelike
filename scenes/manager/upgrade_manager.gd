@@ -1,26 +1,28 @@
 extends Node
 
-#Comment made to check if github works
-
 @export var upgrade_screen_scene: PackedScene 
 @export var experience_manager: Node
 
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 
+var upgrade_mov_speed = preload("res://resources/upgrades/mov_speed_upgrade.tres")
 var upgrade_axe_ability = preload("res://resources/upgrades/axe_ability.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
-var upgrade_mov_speed = preload("res://resources/upgrades/mov_speed_upgrade.tres")
+var upgrade_anvil_ability = preload("res://resources/upgrades/anvil_ability.tres")
+var upgrade_more_anvils = preload("res://resources/upgrades/more_anvils.tres")
 
 
 func _ready():
+	upgrade_pool.add_item(upgrade_mov_speed.name, upgrade_mov_speed, 10)
+	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
 	upgrade_pool.add_item(upgrade_axe_damage.name, upgrade_axe_damage, 0)
 	upgrade_pool.add_item(upgrade_sword_rate.name, upgrade_sword_rate, 30)
-	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
 	upgrade_pool.add_item(upgrade_sword_damage.name, upgrade_sword_damage, 30)
-	upgrade_pool.add_item(upgrade_mov_speed.name, upgrade_mov_speed, 10)
+	upgrade_pool.add_item(upgrade_anvil_ability.name, upgrade_anvil_ability, 15)
+	upgrade_pool.add_item(upgrade_more_anvils.name, upgrade_more_anvils, 0)
 	
 	experience_manager.level_up.connect(on_level_up)
 
@@ -84,6 +86,9 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 		
 		if(upgrade.name == "Axe Ability"):
 			upgrade_pool.change_item_weight("Axe Damage", 15)
+		
+		if(upgrade.name == "Axe Ability"):
+			upgrade_pool.change_item_weight("More anvils", 10)
 	
 	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)
 

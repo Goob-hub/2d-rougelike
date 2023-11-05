@@ -7,6 +7,6 @@ script = ExtResource("1_n5tuf")
 id = "mov_speed"
 name = "Mov Speed"
 value_percent = 0.1
-max_quantity = 4
+max_quantity = 3
 description = "Increase movement speed by 10%
 "

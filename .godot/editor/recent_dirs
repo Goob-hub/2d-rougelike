@@ -1,3 +1,6 @@
+res://resources/particles
+res://scenes/ability/anvil_ability
+res://scenes/ability/anvil_ability_controller
 res://scenes/components
 res://scenes/game_objects/tank_enemy
 res://scenes/ui
@@ -11,12 +14,9 @@ res://scenes/autoload
 res://resources/meta_upgrades
 res://other_scripts
 res://resources/upgrades
-res://resources/particles
 res://resources/shaders
 res://resources/theme
 res://scenes/game_objects
 res://scenes/test_scenes
 res://scenes/game_objects/wizard_enemy
 res://scenes/ability/axe_ability
-res://scenes/ability/axe_ability_controller
-res://scenes/manager
