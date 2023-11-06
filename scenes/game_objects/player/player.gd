@@ -11,9 +11,9 @@ extends CharacterBody2D
 @onready var hit_sound_component = $RandomHitSoundComponent
 @onready var block_ability_component = $Abilities/BlockAbilityComponent
 
-
 var enemies_hurting_player = 0
 var mov_speed_multiplier = 1
+var floating_text = preload("res://scenes/ui/floating_text.tscn")
 
 
 func _ready():
@@ -44,6 +44,9 @@ func _process(delta):
 		visuals_layer.scale = Vector2(mov_vector.x, 1)
 	elif(direction.x > 0):
 		visuals_layer.scale = Vector2(mov_vector.x, 1)
+	
+	if(enemies_hurting_player < 0):
+		enemies_hurting_player = 0
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
@@ -69,7 +72,7 @@ func get_mov_vector():
 
 
 func check_for_damage():
-	if(enemies_hurting_player <= 0 or not hurt_delay_timer.is_stopped()):
+	if(enemies_hurting_player == 0 or not hurt_delay_timer.is_stopped()):
 		return
 	
 	if(player_health_component == null):
@@ -86,7 +89,14 @@ func damage_player(damage: float):
 		is_attack_blocked = false
 		return
 	
-	player_health_component.damage(1 * enemies_hurting_player)
+	var dmg_txt = floating_text.instantiate()
+	
+	dmg_txt.damage_done = damage
+	dmg_txt.global_position += self.global_position
+	
+	owner.get_tree().get_first_node_in_group("foreground_layer").add_child(dmg_txt)
+	
+	player_health_component.damage(damage)
 	GameEvents.emit_player_damaged()
 	hit_sound_component.play_random_sound()
 	hurt_delay_timer.start()
@@ -95,8 +105,8 @@ func damage_player(damage: float):
 func on_body_entered(other_body: Node2D):
 	enemies_hurting_player += 1
 	check_for_damage()
-	if(other_body.get_parent().name == "Projectiles"):
-		damage_player(1)
+	if(other_body.is_in_group("enemy_projectile")):
+		damage_player(other_body.damage)
 		other_body.queue_free()
 
 

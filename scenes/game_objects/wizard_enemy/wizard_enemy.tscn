@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://diixexe83pj1j" path="res://scenes/components/death_component.tscn" id="2_46j60"]
 [ext_resource type="PackedScene" uid="uid://de0yvh8123itg" path="res://scenes/components/velocity_component.tscn" id="2_e18xp"]
 [ext_resource type="PackedScene" uid="uid://dp5a6dhmv8bkn" path="res://scenes/components/health_bar_component.tscn" id="3_bm08u"]
-[ext_resource type="Texture2D" uid="uid://cf4l88vrcw3lu" path="res://scenes/game_objects/wizard_enemy/wizard.png" id="4_4trhj"]
+[ext_resource type="Texture2D" uid="uid://5ppign4hg5ya" path="res://scenes/game_objects/wizard_enemy/wizard.png" id="4_4trhj"]
 [ext_resource type="Material" uid="uid://bwtju8kyge5pr" path="res://resources/particles/blood_splat_particles.tres" id="4_to6m0"]
 [ext_resource type="StyleBox" uid="uid://by35n4vwxhekk" path="res://resources/enemy_health_bar_style.tres" id="5_5vp3e"]
 [ext_resource type="Material" uid="uid://bjocqeqxwrinu" path="res://resources/particles/body_fling_particle.tres" id="5_fab14"]
@@ -361,7 +361,7 @@ _data = {
 "walking": SubResource("Animation_tg25f")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjvfd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocs0l"]
 resource_local_to_scene = true
 shader = ExtResource("7_kt7pe")
 shader_parameter/lerp_percent = 0.0
@@ -376,7 +376,7 @@ radius = 11.0
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_3a0as")
-attack_range = 18000.0
+attack_range = 130.0
 
 [node name="AttackWarningPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -397,7 +397,7 @@ body_animation = ExtResource("5_fab14")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_tg178")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_mjvfd")
+hit_flash_material = SubResource("ShaderMaterial_ocs0l")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_e18xp")]
 mov_speed = 35
@@ -418,6 +418,7 @@ offset_top = -23.0
 offset_bottom = -19.0
 theme_override_styles/fill = ExtResource("5_5vp3e")
 health_component = NodePath("../HealthComponent")
+metadata/_edit_use_anchors_ = true
 
 [node name="Visuals" type="Node2D" parent="."]
 

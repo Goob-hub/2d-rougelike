@@ -11,6 +11,7 @@ const MINIMUM_TIMER_WAIT_TIME: float = .3
 @export var bat_enemy_scene: PackedScene
 @export var tank_enemy_scene: PackedScene
 @export var spider_enemy_scene: PackedScene
+@export var necromancer_enemy_scene: PackedScene
 
 var enemy_table = WeightedTable.new()
 var global_difficulty
@@ -20,6 +21,7 @@ var wizard_weight_changed = false
 var bat_weight_changed = false
 var tank_weight_changed = false
 var spider_weight_changed = false
+var necromancer_weight_changed = false
 
 func _ready():
 	global_difficulty = MetaProgression.get_current_difficulty()
@@ -29,6 +31,7 @@ func _ready():
 	enemy_table.add_item("wizard_enemy", wizard_enemy_scene, 0)
 	enemy_table.add_item("tank_enemy", tank_enemy_scene, 0)
 	enemy_table.add_item("spider_enemy", spider_enemy_scene, 0)
+	enemy_table.add_item("necromancer_enemy", necromancer_enemy_scene, 0)
 	arena_time_manager.arena_difficulty_increased.connect(on_difficulty_increased)
 	timer.timeout.connect(on_timer_timeout)
 
@@ -77,21 +80,6 @@ func on_timer_timeout():
 	entities_layer.add_child(enemy)
 	
 	enemy.global_position = get_spawn_position()
-	
-#	Grab global difficulty modifier and change enemies health multipliers depending on difficulty
-#	enemy.health_component.health_multiplier = .5
-#	enemy.health_component.update_health_values()
-	if(global_difficulty == "easy"):
-		enemy.health_component.health_multiplier = 1
-		enemy.health_component.update_health_values()
-	
-	if(global_difficulty == "normal"):
-		enemy.health_component.health_multiplier = 1.5
-		enemy.health_component.update_health_values()
-	
-	if(global_difficulty == "hard"):
-		enemy.health_component.health_multiplier = 2
-		enemy.health_component.update_health_values()
 
 
 func on_difficulty_increased(arena_difficulty: int):
@@ -114,6 +102,9 @@ func on_difficulty_increased(arena_difficulty: int):
 		enemy_table.change_item_weight("spider_enemy", 25)
 		spider_weight_changed = true
 	
+	if(arena_difficulty > 24 and necromancer_weight_changed == false):
+		enemy_table.change_item_weight("necromancer_enemy", 10)
+		necromancer_weight_changed = true
 #	if(arena_difficulty > 20 and arena_difficulty < 35):
 #		for enemy in enemy_table.items:
 #			if(enemy["name"] == "wizard_enemy" and enemy["weight"] < 15):

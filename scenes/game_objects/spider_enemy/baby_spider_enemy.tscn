@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://4povda0dhpr0"]
+[gd_scene load_steps=30 format=3 uid="uid://4povda0dhpr0"]
 
 [ext_resource type="PackedScene" uid="uid://diixexe83pj1j" path="res://scenes/components/death_component.tscn" id="1_6n3qs"]
 [ext_resource type="Script" path="res://scenes/game_objects/spider_enemy/baby_spider_enemy.gd" id="1_eohog"]
 [ext_resource type="Texture2D" uid="uid://cjx8jdctjufcj" path="res://scenes/game_objects/spider_enemy/spider.png" id="2_6utc8"]
-[ext_resource type="Material" uid="uid://bwtju8kyge5pr" path="res://resources/particles/blood_splat_particles.tres" id="3_vka2g"]
 [ext_resource type="Material" uid="uid://bjocqeqxwrinu" path="res://resources/particles/body_fling_particle.tres" id="4_o5ok1"]
 [ext_resource type="PackedScene" uid="uid://w1h65fapoq5h" path="res://scenes/components/hit_flash_component.tscn" id="5_6gl51"]
 [ext_resource type="Shader" path="res://resources/shaders/hit_flash_component.gdshader" id="6_ro0pr"]
@@ -18,6 +17,9 @@
 [ext_resource type="AudioStream" uid="uid://d2e0bck4gsuw0" path="res://assets/audio/footstep_carpet_002.ogg" id="15_qqxa1"]
 [ext_resource type="AudioStream" uid="uid://35c4vq8rm0gp" path="res://assets/audio/footstep_carpet_003.ogg" id="16_kp0cf"]
 [ext_resource type="AudioStream" uid="uid://c882tr80tldu8" path="res://assets/audio/footstep_carpet_004.ogg" id="17_autuf"]
+
+[sub_resource type="Animation" id="Animation_grjyr"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_cv2ur"]
 resource_name = "walk"
@@ -60,16 +62,42 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(0.8, 1), Vector2(1.2, 1), Vector2(0.8, 1), Vector2(1.2, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_grjyr"]
-length = 0.001
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_owvxg"]
 _data = {
 "RESET": SubResource("Animation_grjyr"),
 "walk": SubResource("Animation_cv2ur")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n17rf"]
+[sub_resource type="Gradient" id="Gradient_yqqwc"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.369318, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ndmc3"]
+gradient = SubResource("Gradient_yqqwc")
+
+[sub_resource type="Curve" id="Curve_ibwux"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.753623, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xhhmv"]
+curve = SubResource("Curve_ibwux")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xqcly"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 143.9
+gravity = Vector3(10, 10, 0)
+initial_velocity_min = -100.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_xhhmv")
+color = Color(0.529412, 0.454902, 0, 1)
+color_ramp = SubResource("GradientTexture1D_ndmc3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6byo1"]
 resource_local_to_scene = true
 shader = ExtResource("6_ro0pr")
 shader_parameter/lerp_percent = 0.0
@@ -103,19 +131,18 @@ libraries = {
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("1_6n3qs")]
 health_component = NodePath("../HealthComponent")
 texture = ExtResource("2_6utc8")
-blood_animation = ExtResource("3_vka2g")
+blood_animation = SubResource("ParticleProcessMaterial_xqcly")
 body_animation = ExtResource("4_o5ok1")
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_6gl51")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_n17rf")
+hit_flash_material = SubResource("ShaderMaterial_6byo1")
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_2l5ur")]
 max_health = 5.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_f0g0g")]
-drop_percent = 0.1
 health_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("9_y5chr")]

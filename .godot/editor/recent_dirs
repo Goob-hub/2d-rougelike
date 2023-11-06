@@ -1,3 +1,6 @@
+res://scenes/ability
+res://scenes/game_objects/necro_ghost_enemy
+res://scenes/game_objects/necromancer_enemy
 res://scenes/game_objects/spider_enemy
 C:/Users/soliz/Desktop/TheArtOfWar
 res://resources/particles
@@ -17,6 +20,3 @@ res://other_scripts
 res://resources/upgrades
 res://resources/shaders
 res://resources/theme
-res://scenes/game_objects
-res://scenes/test_scenes
-res://scenes/game_objects/wizard_enemy

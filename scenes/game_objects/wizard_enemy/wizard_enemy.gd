@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var staff_sprite = $Visuals/StaffSprite
 @onready var health_component = $HealthComponent
 
-@export var attack_range: float = 20000
+@export var attack_range: float = 100
 
 
 var is_reset = true
@@ -24,12 +24,12 @@ func _process(delta):
 	if(player == null):
 		return
 	
-	var distance_from_player = global_position.distance_squared_to(player.global_position)
+	var distance_from_player_squared = global_position.distance_squared_to(player.global_position)
 	
 	velocity_component.get_direction_to_player()
 	visuals_layer.scale = velocity_component.face_towards_player()
 	
-	if(distance_from_player < attack_range):
+	if(distance_from_player_squared < pow(attack_range, 2)):
 		if(is_reset == false):
 			reset_sprites()
 		
@@ -37,7 +37,7 @@ func _process(delta):
 			reset_sprites()
 			$AttackWarningPlayer.play("before_attack")
 			await $AttackWarningPlayer.animation_finished
-			attack_component.use_attack()
+			attack_component.use_attack(self.global_position)
 	else:
 		is_reset = false
 		animation_player.play("walking")

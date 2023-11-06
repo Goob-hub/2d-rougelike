@@ -5,8 +5,6 @@ var damage_done: float = 0
 func _ready():
 	$Label.text = str(damage_done)
 	
-	global_position.x += 10
-	
 	var tween = create_tween()
 	
 	tween.tween_property(self, "scale", Vector2(1, 1), .2)\

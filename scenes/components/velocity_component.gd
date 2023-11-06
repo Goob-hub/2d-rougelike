@@ -35,6 +35,13 @@ func face_towards_player():
 		return Vector2(1, 1)
 
 
+func face_away_from_player():
+	if(direction.x > 0):
+		return Vector2(-1, 1)
+	elif(direction.x < 0 or direction.x == 0):
+		return Vector2(1, 1)
+
+
 func move(character_body: Node2D):
 	character_body.velocity = velocity
 	character_body.move_and_slide()

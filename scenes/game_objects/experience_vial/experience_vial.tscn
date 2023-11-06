@@ -52,7 +52,7 @@ _data = {
 
 [node name="ExperienceVial" type="Node2D"]
 script = ExtResource("1_theg3")
-experience_gained = 1.0
+experience_gained = 2.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -66,7 +66,7 @@ shape = SubResource("CircleShape2D_orpl6")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Visuals"]
 position = Vector2(0, 5)
-amount = 20
+amount = 5
 process_material = ExtResource("2_f8m0b")
 lifetime = 2.0
 fixed_fps = 0

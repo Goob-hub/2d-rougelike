@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://xpy358wakx26"]
+
+[ext_resource type="Texture2D" uid="uid://6wqcmbh8p2o" path="res://scenes/game_objects/necro_ghost_enemy/necro_ghost_ball.png" id="1_ghi1n"]
+[ext_resource type="Script" path="res://scenes/game_objects/necro_ghost_enemy/necro_ghost_ball.gd" id="1_gmwf1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mu81t"]
+radius = 7.0
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["enemy_projectile"]]
+collision_layer = 32
+collision_mask = 33
+script = ExtResource("1_gmwf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mu81t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ghi1n")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -25,6 +25,7 @@ func on_dead():
 	var parent_abilities = get_parent().ability_list
 	var enemy_position = get_parent().global_position
 	var entity_layer = get_tree().get_first_node_in_group("entities_layer")
+	var projectile_layer = get_tree().get_first_node_in_group("projectiles")
 	get_parent().remove_child(self)
 	
 	entity_layer.add_child(self)
@@ -35,9 +36,19 @@ func on_dead():
 	if(parent_abilities.has("death_ability")):
 		var death_ability = parent_abilities.death_ability 
 		var entitys_spawned = 0
-		
+		print(death_ability)
 		while entitys_spawned < death_ability.entity_amount:
 			var entity_spawn_instance = death_ability.entity.instantiate()
-			entity_layer.add_child(entity_spawn_instance)
-			entity_spawn_instance.global_position = enemy_position + Vector2(randi_range(1, 10), randi_range(1, 10))
+			
+			if(death_ability.is_projectile == true):
+				projectile_layer.add_child(entity_spawn_instance)
+			else:
+				entity_layer.add_child(entity_spawn_instance)
+			
+			if(death_ability.randomize_spawn_position == false):
+				entity_spawn_instance.global_position = enemy_position
+			else:
+				entity_spawn_instance.global_position = enemy_position + Vector2(randi_range(10, 20), randi_range(10, 20))
+			
 			entitys_spawned += 1
+

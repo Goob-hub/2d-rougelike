@@ -2,7 +2,7 @@ extends Node
 
 @export_range(0, 1) var drop_percent: float
 @export var vial_scene: PackedScene
-@export var health_component: Node
+@export var health_component: HealthComponent
 
 var drop_percent_multiplier = 1
 

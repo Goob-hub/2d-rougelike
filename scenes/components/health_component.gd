@@ -11,7 +11,21 @@ var health_multiplier = 1
 var is_dead_signal_emitted = false
 
 func _ready():
+	var global_difficulty = MetaProgression.get_current_difficulty()
 	current_health = max_health * health_multiplier
+	
+	if(owner.is_in_group("enemy")):
+		if(global_difficulty == "easy"):
+			health_multiplier = 1
+			update_health_values()
+		
+		if(global_difficulty == "normal"):
+			health_multiplier = 1.5
+			update_health_values()
+		
+		if(global_difficulty == "hard"):
+			health_multiplier = 2
+			update_health_values()
 
 
 func update_health_values():
