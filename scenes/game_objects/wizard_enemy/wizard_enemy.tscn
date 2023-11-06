@@ -361,7 +361,7 @@ _data = {
 "walking": SubResource("Animation_tg25f")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ev2nx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjvfd"]
 resource_local_to_scene = true
 shader = ExtResource("7_kt7pe")
 shader_parameter/lerp_percent = 0.0
@@ -397,7 +397,7 @@ body_animation = ExtResource("5_fab14")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_tg178")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_ev2nx")
+hit_flash_material = SubResource("ShaderMaterial_mjvfd")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_e18xp")]
 mov_speed = 35

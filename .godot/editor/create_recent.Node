@@ -1,11 +1,11 @@
-GPUParticles2D
-CollisionShape2D
 AnimationPlayer
+CollisionShape2D
+CharacterBody2D
+GPUParticles2D
 Sprite2D
 Node2D
 Timer
 Node
-CharacterBody2D
 ScrollContainer
 Label
 HBoxContainer

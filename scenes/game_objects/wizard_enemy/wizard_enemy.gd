@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @onready var velocity_component = $VelocityComponent
 @onready var attack_component = $AttackComponent
 @onready var visuals_layer = $Visuals

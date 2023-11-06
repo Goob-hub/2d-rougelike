@@ -16,11 +16,11 @@ var upgrade_more_anvils = preload("res://resources/upgrades/more_anvils.tres")
 
 
 func _ready():
-#	upgrade_pool.add_item(upgrade_mov_speed.name, upgrade_mov_speed, 10)
-#	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
-#	upgrade_pool.add_item(upgrade_axe_damage.name, upgrade_axe_damage, 0)
-#	upgrade_pool.add_item(upgrade_sword_rate.name, upgrade_sword_rate, 30)
-#	upgrade_pool.add_item(upgrade_sword_damage.name, upgrade_sword_damage, 30)
+	upgrade_pool.add_item(upgrade_mov_speed.name, upgrade_mov_speed, 10)
+	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
+	upgrade_pool.add_item(upgrade_axe_damage.name, upgrade_axe_damage, 0)
+	upgrade_pool.add_item(upgrade_sword_rate.name, upgrade_sword_rate, 30)
+	upgrade_pool.add_item(upgrade_sword_damage.name, upgrade_sword_damage, 30)
 	upgrade_pool.add_item(upgrade_anvil_ability.name, upgrade_anvil_ability, 15)
 	upgrade_pool.add_item(upgrade_more_anvils.name, upgrade_more_anvils, 0)
 	

@@ -5,10 +5,10 @@ extends Node2D
 @export var blood_animation: ParticleProcessMaterial
 @export var body_animation: ParticleProcessMaterial
 
+
 @onready var animation_player = $AnimationPlayer
 @onready var body_particles = $BodyParticles
 @onready var blood_particles = $BloodParticles
-
 
 func _ready():
 	health_component.dead.connect(on_dead)
@@ -22,6 +22,7 @@ func on_dead():
 	if get_parent() == null or not get_parent() is Node2D:
 		return
 	
+	var parent_abilities = get_parent().ability_list
 	var enemy_position = get_parent().global_position
 	var entity_layer = get_tree().get_first_node_in_group("entities_layer")
 	get_parent().remove_child(self)
@@ -30,3 +31,13 @@ func on_dead():
 	self.global_position = enemy_position
 	animation_player.play("default")
 	$RandomHitSoundComponent.play_random_sound()
+	
+	if(parent_abilities.has("death_ability")):
+		var death_ability = parent_abilities.death_ability 
+		var entitys_spawned = 0
+		
+		while entitys_spawned < death_ability.entity_amount:
+			var entity_spawn_instance = death_ability.entity.instantiate()
+			entity_layer.add_child(entity_spawn_instance)
+			entity_spawn_instance.global_position = enemy_position + Vector2(randi_range(1, 10), randi_range(1, 10))
+			entitys_spawned += 1

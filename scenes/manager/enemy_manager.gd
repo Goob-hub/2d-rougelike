@@ -10,6 +10,7 @@ const MINIMUM_TIMER_WAIT_TIME: float = .3
 @export var wizard_enemy_scene: PackedScene
 @export var bat_enemy_scene: PackedScene
 @export var tank_enemy_scene: PackedScene
+@export var spider_enemy_scene: PackedScene
 
 var enemy_table = WeightedTable.new()
 var global_difficulty
@@ -18,6 +19,7 @@ var global_difficulty
 var wizard_weight_changed = false
 var bat_weight_changed = false
 var tank_weight_changed = false
+var spider_weight_changed = false
 
 func _ready():
 	global_difficulty = MetaProgression.get_current_difficulty()
@@ -26,7 +28,7 @@ func _ready():
 	enemy_table.add_item("bat_enemy", bat_enemy_scene, 0)
 	enemy_table.add_item("wizard_enemy", wizard_enemy_scene, 0)
 	enemy_table.add_item("tank_enemy", tank_enemy_scene, 0)
-	
+	enemy_table.add_item("spider_enemy", spider_enemy_scene, 0)
 	arena_time_manager.arena_difficulty_increased.connect(on_difficulty_increased)
 	timer.timeout.connect(on_timer_timeout)
 
@@ -94,16 +96,23 @@ func on_timer_timeout():
 
 func on_difficulty_increased(arena_difficulty: int):
 	if(arena_difficulty > 6 and bat_weight_changed == false):
-		enemy_table.change_item_weight("bat_enemy", 30)
+		enemy_table.change_item_weight("bat_enemy", 55)
 		bat_weight_changed = true
 	
-	if(arena_difficulty > 12 and wizard_weight_changed == false):
+	if(arena_difficulty > 12 and tank_weight_changed == false):
+		enemy_table.change_item_weight("tank_enemy", 35)
+		tank_weight_changed = true
+	
+	if(arena_difficulty > 16 and wizard_weight_changed == false):
 		enemy_table.change_item_weight("wizard_enemy", 10)
 		wizard_weight_changed = true
 	
-	if(arena_difficulty > 16 and tank_weight_changed == false):
-		enemy_table.change_item_weight("tank_enemy", 10)
-		tank_weight_changed = true
+	if(arena_difficulty == 16):
+		enemy_table.change_item_weight("basic_enemy", 100)
+	
+	if(arena_difficulty > 20 and spider_weight_changed == false):
+		enemy_table.change_item_weight("spider_enemy", 25)
+		spider_weight_changed = true
 	
 #	if(arena_difficulty > 20 and arena_difficulty < 35):
 #		for enemy in enemy_table.items:
