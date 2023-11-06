@@ -3,7 +3,7 @@ extends Node
 signal experience_updated(current_experience: float, target_expreince: float)
 signal level_up(new_level: int)
 
-@export var target_expreience_growth = 1
+@export var target_expreience_growth = 1.3
 
 var current_level = 1
 var current_experience = 0

@@ -16,11 +16,11 @@ var upgrade_more_anvils = preload("res://resources/upgrades/more_anvils.tres")
 
 
 func _ready():
-	upgrade_pool.add_item(upgrade_mov_speed.name, upgrade_mov_speed, 10)
-	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
-	upgrade_pool.add_item(upgrade_axe_damage.name, upgrade_axe_damage, 0)
-	upgrade_pool.add_item(upgrade_sword_rate.name, upgrade_sword_rate, 30)
-	upgrade_pool.add_item(upgrade_sword_damage.name, upgrade_sword_damage, 30)
+#	upgrade_pool.add_item(upgrade_mov_speed.name, upgrade_mov_speed, 10)
+#	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
+#	upgrade_pool.add_item(upgrade_axe_damage.name, upgrade_axe_damage, 0)
+#	upgrade_pool.add_item(upgrade_sword_rate.name, upgrade_sword_rate, 30)
+#	upgrade_pool.add_item(upgrade_sword_damage.name, upgrade_sword_damage, 30)
 	upgrade_pool.add_item(upgrade_anvil_ability.name, upgrade_anvil_ability, 15)
 	upgrade_pool.add_item(upgrade_more_anvils.name, upgrade_more_anvils, 0)
 	
@@ -42,6 +42,8 @@ func pick_upgrades():
 	
 	for i in 2:
 		var rand_upgrade = upgrade_pool.choose_item() as AbilityUpgrade 
+		if(rand_upgrade == null):
+			continue
 		item_weights.append(upgrade_pool.get_item_weight(rand_upgrade.name))
 		chosen_upgrades_array.append(rand_upgrade)
 		upgrade_pool.change_item_weight(rand_upgrade.name, 0)
@@ -87,7 +89,7 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 		if(upgrade.name == "Axe Ability"):
 			upgrade_pool.change_item_weight("Axe Damage", 15)
 		
-		if(upgrade.name == "Axe Ability"):
+		if(upgrade.name == "Anvil ability"):
 			upgrade_pool.change_item_weight("More anvils", 10)
 	
 	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)

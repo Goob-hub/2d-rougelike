@@ -9,4 +9,4 @@ max_quantity = 5
 experience_cost = 20.0
 value_percent = 0.03
 title = "Block Ability"
-description = "Increases your chance to block incoming damage by 2%."
+description = "Increases your chance to block incoming damage by 3%."

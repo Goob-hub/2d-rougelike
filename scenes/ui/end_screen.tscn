@@ -176,11 +176,11 @@ script = ExtResource("1_hbgpo")
 
 [node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_b1521")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="DefeatStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5jg80")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = 1

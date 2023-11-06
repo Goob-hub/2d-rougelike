@@ -12,6 +12,9 @@ func choose_item():
 	var random_weight = randi_range(1, weight_sum)
 	var iteration_sum = 0
 	
+	if(weight_sum <= 0):
+		return
+	
 	for item in items:
 		iteration_sum += item.weight
 		if(random_weight <= iteration_sum):

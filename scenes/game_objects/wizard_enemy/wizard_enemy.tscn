@@ -361,7 +361,7 @@ _data = {
 "walking": SubResource("Animation_tg25f")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lf0l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ev2nx"]
 resource_local_to_scene = true
 shader = ExtResource("7_kt7pe")
 shader_parameter/lerp_percent = 0.0
@@ -397,7 +397,7 @@ body_animation = ExtResource("5_fab14")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_tg178")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_4lf0l")
+hit_flash_material = SubResource("ShaderMaterial_ev2nx")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_e18xp")]
 mov_speed = 35
@@ -442,5 +442,6 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_duv6t")
 
 [node name="RandomHitSoundComponent" parent="." instance=ExtResource("17_elv7i")]
+volume_db = -7.0
 max_distance = 300.0
 audio_streams = Array[AudioStream]([ExtResource("18_aka5m"), ExtResource("19_rcn77"), ExtResource("20_pop81"), ExtResource("21_vfd04"), ExtResource("22_yniye")])

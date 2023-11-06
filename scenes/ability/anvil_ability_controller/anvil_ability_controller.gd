@@ -16,7 +16,7 @@ func _ready():
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if(upgrade.id == "more_anvils"):
-		max_anvils_spawned = current_upgrades["more_anvils"]["quantity"]
+		max_anvils_spawned = current_upgrades["more_anvils"]["quantity"] + 1
 
 
 func on_timer_timeout():

@@ -7,5 +7,5 @@ script = ExtResource("1_e5vof")
 id = "more_anvils"
 name = "More anvils"
 value_percent = 0.0
-max_quantity = 3
+max_quantity = 2
 description = "Summon one extra anvil."

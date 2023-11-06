@@ -8,6 +8,8 @@ signal damaged
 var current_health: float
 var health_multiplier = 1
 
+var is_dead_signal_emitted = false
+
 func _ready():
 	current_health = max_health * health_multiplier
 
@@ -33,6 +35,9 @@ func get_health_percent():
 
 
 func check_death():
-	if(current_health == 0):
+	if(current_health == 0 && not is_dead_signal_emitted):
 		dead.emit()
+		is_dead_signal_emitted = true
+		if(owner.name == "Player"):
+			return
 		owner.queue_free()

@@ -5,12 +5,35 @@ const SAVE_FILE_PATH = "user://game.save"
 var save_data: Dictionary = {
 	"global_difficulty": "Normal",
 	"upgrade_currency_amount": 0,
-	"meta_upgrades": {}
+	"meta_upgrades": {},
+	"options_data": {
+		"sfx": 0,
+		"music": 0,
+		"window_mode": "fullscreen"
+	}
 }
 
 func _ready():
+	print(save_data.options_data)
 	GameEvents.experience_vial_collected.connect(on_exp_collected)
 	load_save()
+	set_bus_volume()
+	set_window_mode()
+
+
+func set_bus_volume():
+	var bus_index_sfx = AudioServer.get_bus_index("sfx")
+	var bus_index_music = AudioServer.get_bus_index("music")
+	AudioServer.set_bus_volume_db(bus_index_sfx, save_data.options_data.sfx)
+	AudioServer.set_bus_volume_db(bus_index_music, save_data.options_data.music)
+
+
+func set_window_mode():
+	if save_data.options_data.window_mode == "windowed":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
 func load_save():
@@ -60,3 +83,7 @@ func get_current_difficulty():
 	else:
 		save_data.global_difficulty = "Normal"
 		return save_data.global_difficulty.to_lower()
+
+
+func get_options_data():
+	return save_data["options_data"]

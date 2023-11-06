@@ -47,7 +47,6 @@ func _process(delta):
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	print(upgrade)
 	if(upgrade.id == "mov_speed"):
 		mov_speed_multiplier += upgrade.value_percent
 		velocity_component.acceleration += 3
@@ -97,7 +96,6 @@ func on_body_entered(other_body: Node2D):
 	enemies_hurting_player += 1
 	check_for_damage()
 	if(other_body.get_parent().name == "Projectiles"):
-		print("player damaged by projectile")
 		damage_player(1)
 		other_body.queue_free()
 

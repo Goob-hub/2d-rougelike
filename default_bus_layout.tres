@@ -1,7 +1,7 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://b8odq32imc36r"]
 
 [resource]
-bus/0/volume_db = -1.91476
+bus/0/volume_db = -0.723771
 bus/1/name = &"sfx"
 bus/1/solo = false
 bus/1/mute = false
