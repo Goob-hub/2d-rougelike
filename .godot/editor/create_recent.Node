@@ -1,7 +1,7 @@
-GPUParticles2D
-Node
 AnimationPlayer
 Timer
+Node
+GPUParticles2D
 Sprite2D
 CollisionShape2D
 StaticBody2D

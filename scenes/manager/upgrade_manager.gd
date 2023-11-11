@@ -13,16 +13,17 @@ var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
 var upgrade_anvil_ability = preload("res://resources/upgrades/anvil_ability.tres")
 var upgrade_more_anvils = preload("res://resources/upgrades/more_anvils.tres")
-
+var upgrade_block_ability = preload("res://resources/upgrades/block_ability.tres")
 
 func _ready():
-	upgrade_pool.add_item(upgrade_mov_speed.name, upgrade_mov_speed, 10)
-	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 15)
+	upgrade_pool.add_item(upgrade_mov_speed.name, upgrade_mov_speed, 15)
+	upgrade_pool.add_item(upgrade_axe_ability.name, upgrade_axe_ability, 25)
 	upgrade_pool.add_item(upgrade_axe_damage.name, upgrade_axe_damage, 0)
-	upgrade_pool.add_item(upgrade_sword_rate.name, upgrade_sword_rate, 30)
-	upgrade_pool.add_item(upgrade_sword_damage.name, upgrade_sword_damage, 30)
-	upgrade_pool.add_item(upgrade_anvil_ability.name, upgrade_anvil_ability, 15)
+	upgrade_pool.add_item(upgrade_sword_rate.name, upgrade_sword_rate, 50)
+	upgrade_pool.add_item(upgrade_sword_damage.name, upgrade_sword_damage, 50)
+	upgrade_pool.add_item(upgrade_anvil_ability.name, upgrade_anvil_ability, 20)
 	upgrade_pool.add_item(upgrade_more_anvils.name, upgrade_more_anvils, 0)
+	upgrade_pool.add_item(upgrade_block_ability.name, upgrade_block_ability, 15)
 	
 	experience_manager.level_up.connect(on_level_up)
 

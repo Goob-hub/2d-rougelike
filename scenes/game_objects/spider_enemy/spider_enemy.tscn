@@ -135,7 +135,7 @@ scale_curve = SubResource("CurveTexture_xhhmv")
 color = Color(0.529412, 0.454902, 0, 1)
 color_ramp = SubResource("GradientTexture1D_ndmc3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qx1ws"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q336l"]
 resource_local_to_scene = true
 shader = ExtResource("5_10qrp")
 shader_parameter/lerp_percent = 0.0
@@ -179,7 +179,7 @@ randomize_spawn_position = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_aftfb")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_qx1ws")
+hit_flash_material = SubResource("ShaderMaterial_q336l")
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_8r605")]
 max_health = 6.0

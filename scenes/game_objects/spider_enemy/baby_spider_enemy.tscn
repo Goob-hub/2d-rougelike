@@ -97,7 +97,7 @@ scale_curve = SubResource("CurveTexture_xhhmv")
 color = Color(0.529412, 0.454902, 0, 1)
 color_ramp = SubResource("GradientTexture1D_ndmc3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6byo1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_msh01"]
 resource_local_to_scene = true
 shader = ExtResource("6_ro0pr")
 shader_parameter/lerp_percent = 0.0
@@ -137,7 +137,7 @@ body_animation = ExtResource("4_o5ok1")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_6gl51")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_6byo1")
+hit_flash_material = SubResource("ShaderMaterial_msh01")
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_2l5ur")]
 max_health = 5.0

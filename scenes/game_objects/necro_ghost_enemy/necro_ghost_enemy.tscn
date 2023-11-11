@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cwt7geduvjjbl"]
+[gd_scene load_steps=36 format=3 uid="uid://cwt7geduvjjbl"]
 
 [ext_resource type="PackedScene" uid="uid://diixexe83pj1j" path="res://scenes/components/death_component.tscn" id="1_4kst0"]
 [ext_resource type="Script" path="res://scenes/game_objects/necro_ghost_enemy/necro_ghost_enemy.gd" id="1_ygqyt"]
@@ -18,6 +18,68 @@
 [ext_resource type="AudioStream" uid="uid://d2e0bck4gsuw0" path="res://assets/audio/footstep_carpet_002.ogg" id="16_mscga"]
 [ext_resource type="AudioStream" uid="uid://35c4vq8rm0gp" path="res://assets/audio/footstep_carpet_003.ogg" id="17_toced"]
 [ext_resource type="AudioStream" uid="uid://c882tr80tldu8" path="res://assets/audio/footstep_carpet_004.ogg" id="18_6sgx7"]
+
+[sub_resource type="Animation" id="Animation_ay3te"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h08fo"]
+resource_name = "float"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xh7do"]
+_data = {
+"RESET": SubResource("Animation_ay3te"),
+"float": SubResource("Animation_h08fo")
+}
 
 [sub_resource type="Gradient" id="Gradient_yqqwc"]
 interpolation_mode = 2
@@ -71,7 +133,7 @@ orbit_velocity_max = 0.0
 scale_curve = SubResource("CurveTexture_s2kaf")
 color_ramp = SubResource("GradientTexture1D_ohhlg")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqn61"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmljj"]
 resource_local_to_scene = true
 shader = ExtResource("6_swlrd")
 shader_parameter/lerp_percent = 0.0
@@ -95,6 +157,12 @@ collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_ygqyt")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "float"
+libraries = {
+"": SubResource("AnimationLibrary_xh7do")
+}
+
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("1_4kst0")]
 health_component = NodePath("../HealthComponent")
 texture = ExtResource("12_f5qel")
@@ -109,7 +177,7 @@ is_projectile = true
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_lcina")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_dqn61")
+hit_flash_material = SubResource("ShaderMaterial_jmljj")
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_ms7gy")]
 max_health = 7.0

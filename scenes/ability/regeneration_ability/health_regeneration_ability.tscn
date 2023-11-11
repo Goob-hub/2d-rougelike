@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgevdhuwp2rkh"]
+
+[ext_resource type="Script" path="res://scenes/ability/regeneration_ability/health_regeneration_ability.gd" id="1_golms"]
+
+[node name="HealthRegenerationAbility" type="Node"]
+script = ExtResource("1_golms")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

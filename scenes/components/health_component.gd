@@ -3,14 +3,17 @@ class_name HealthComponent
 
 signal dead
 signal damaged
+signal healed(heal_amount)
 
 @export var max_health: float
 var current_health: float
 var health_multiplier = 1
 
 var is_dead_signal_emitted = false
+var enemy_manager
 
 func _ready():
+	enemy_manager = get_parent().get_tree().get_first_node_in_group("enemy_manager")
 	var global_difficulty = MetaProgression.get_current_difficulty()
 	current_health = max_health * health_multiplier
 	
@@ -54,4 +57,20 @@ func check_death():
 		is_dead_signal_emitted = true
 		if(owner.name == "Player"):
 			return
+		
+		enemy_manager.enemy_count -= 1
+		
 		owner.queue_free()
+
+
+func heal(heal_amount: float):
+	if(heal_amount == null):
+		return
+	
+	current_health += heal_amount
+	
+	if(current_health >= max_health):
+		current_health = max_health
+		return
+	
+	healed.emit(heal_amount)

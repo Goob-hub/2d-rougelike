@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bt7buwa8p7nsg"]
+[gd_scene load_steps=23 format=3 uid="uid://bt7buwa8p7nsg"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_hasnl"]
 [ext_resource type="Texture2D" uid="uid://cia2v0rngro2x" path="res://scenes/game_objects/player/player.png" id="1_o0ylg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://de0yvh8123itg" path="res://scenes/components/velocity_component.tscn" id="2_w04cn"]
 [ext_resource type="PackedScene" uid="uid://bedirjl1nufjb" path="res://scenes/ability/block_ability/block_ability_component.tscn" id="4_3byhn"]
 [ext_resource type="PackedScene" uid="uid://dp5a6dhmv8bkn" path="res://scenes/components/health_bar_component.tscn" id="4_n41ar"]
+[ext_resource type="PackedScene" uid="uid://cgevdhuwp2rkh" path="res://scenes/ability/regeneration_ability/health_regeneration_ability.tscn" id="4_vkw7e"]
 [ext_resource type="PackedScene" uid="uid://xewnqnrkwdl4" path="res://scenes/components/RandomHitSoundComponent.tscn" id="7_4wm0e"]
 [ext_resource type="AudioStream" uid="uid://c5ti856evlraf" path="res://assets/audio/impactMining_000.ogg" id="8_foqqs"]
 [ext_resource type="AudioStream" uid="uid://dly7v7vc6y84s" path="res://assets/audio/impactMining_001.ogg" id="9_p1egj"]
@@ -174,6 +175,8 @@ max_health = 10.0
 mov_speed = 100
 
 [node name="Abilities" type="Node" parent="."]
+
+[node name="HealthRegenerationAbility" parent="Abilities" instance=ExtResource("4_vkw7e")]
 
 [node name="BlockAbilityComponent" parent="Abilities" node_paths=PackedStringArray("parent_entity") instance=ExtResource("4_3byhn")]
 parent_entity = NodePath("../..")

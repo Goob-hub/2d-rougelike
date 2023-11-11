@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://dcvkx2ke83lt0"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_t5qr3"]
+
+[resource]
+script = ExtResource("1_t5qr3")
+id = "block_ability"
+name = "Block chance"
+value_percent = 0.05
+max_quantity = 3
+description = "Increases your chance to block incoming damage by 5%
+"

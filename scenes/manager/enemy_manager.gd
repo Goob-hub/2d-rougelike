@@ -2,10 +2,10 @@ extends Node2D
 
 const SPAWN_RADIUS: int = 370
 const MINIMUM_TIMER_WAIT_TIME: float = .3
+const max_enemy_count = 70
 
 @onready var timer = $Timer
 @export var arena_time_manager: Node
-
 @export var basic_enemy_scene: PackedScene
 @export var wizard_enemy_scene: PackedScene
 @export var bat_enemy_scene: PackedScene
@@ -13,6 +13,7 @@ const MINIMUM_TIMER_WAIT_TIME: float = .3
 @export var spider_enemy_scene: PackedScene
 @export var necromancer_enemy_scene: PackedScene
 
+var enemy_count = 0
 var enemy_table = WeightedTable.new()
 var global_difficulty
 
@@ -67,7 +68,12 @@ func get_spawn_position():
 
 func on_timer_timeout():
 	timer.start()
+	
+	if(max_enemy_count <= enemy_count):
+		return
+	
 	var player = get_tree().get_first_node_in_group("player") as Node2D
+	
 	if(player == null):
 		return
 	
@@ -75,6 +81,7 @@ func on_timer_timeout():
 	if(rand_enemy_scene == null):
 		return
 	
+	enemy_count += 1
 	var enemy = rand_enemy_scene.instantiate() as Node2D
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	entities_layer.add_child(enemy)
@@ -105,10 +112,6 @@ func on_difficulty_increased(arena_difficulty: int):
 	if(arena_difficulty > 24 and necromancer_weight_changed == false):
 		enemy_table.change_item_weight("necromancer_enemy", 10)
 		necromancer_weight_changed = true
-#	if(arena_difficulty > 20 and arena_difficulty < 35):
-#		for enemy in enemy_table.items:
-#			if(enemy["name"] == "wizard_enemy" and enemy["weight"] < 15):
-#				enemy["weight"] += 1
 	
 	if(timer.wait_time > .3):
 		var new_wait_time = maxf(timer.wait_time - (.1 / 12 * arena_difficulty), MINIMUM_TIMER_WAIT_TIME)

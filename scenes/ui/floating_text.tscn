@@ -5,6 +5,7 @@
 [node name="FloatingText" type="Node2D"]
 scale = Vector2(1e-05, 1e-05)
 script = ExtResource("1_i4mt8")
+text_color_on_heal = Color(0.469052, 0.989748, 0.65552, 1)
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 32)

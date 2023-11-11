@@ -19,7 +19,6 @@ func _ready():
 
 func check_if_blocked():
 	var rand_float = randf_range(0, 1)
-	
 	if(rand_float < block_chance_percent):
 		show_block_vfx()
 		return true

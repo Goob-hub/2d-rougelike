@@ -8,8 +8,8 @@ extends CharacterBody2D
 var ability_list = {}
 
 func _ready():
-	$HurtBoxComponent.hit.connect(on_hit)
 	ability_list.block_ability = block_ability_component
+	$HurtBoxComponent.hit.connect(on_hit)
 
 
 func _process(delta):

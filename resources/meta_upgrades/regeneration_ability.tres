@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://7nesj4gck74u"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrades.gd" id="1_xarxf"]
+
+[resource]
+script = ExtResource("1_xarxf")
+id = "regeneration_ability"
+max_quantity = 5
+experience_cost = 50.0
+value_percent = 1.0
+title = "Regenerate health"
+description = "Every 10 seconds regenerate 1hp. Every upgrade decreases the time by 1 second"

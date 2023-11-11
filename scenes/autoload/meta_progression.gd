@@ -14,7 +14,6 @@ var save_data: Dictionary = {
 }
 
 func _ready():
-	print(save_data.options_data)
 	GameEvents.experience_vial_collected.connect(on_exp_collected)
 	load_save()
 	set_bus_volume()

@@ -1,8 +1,11 @@
+C:/Users/soliz/Desktop/TheArtOfWar Debug
+C:/Users/soliz/Desktop
+C:/Users/soliz/Desktop/TheArtOfWar
+res://scenes/ability/regeneration_ability
 res://scenes/ability
 res://scenes/game_objects/necro_ghost_enemy
 res://scenes/game_objects/necromancer_enemy
 res://scenes/game_objects/spider_enemy
-C:/Users/soliz/Desktop/TheArtOfWar
 res://resources/particles
 res://scenes/ability/anvil_ability
 res://scenes/ability/anvil_ability_controller
@@ -11,7 +14,6 @@ res://scenes/game_objects/tank_enemy
 res://scenes/ui
 res://scenes/ability/block_ability
 res://scenes/game_objects/bat_enemy
-C:/Users/soliz/Desktop
 res://
 res://resources
 res://scenes/autoload
@@ -19,4 +21,3 @@ res://resources/meta_upgrades
 res://other_scripts
 res://resources/upgrades
 res://resources/shaders
-res://resources/theme
